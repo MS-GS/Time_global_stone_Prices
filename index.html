@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,28 +10,18 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Kufi+Arabic:wght@400;600;700&display=swap" rel="stylesheet">
     
-    <!-- Bootstrap 5 CSS (Default LTR) -->
-    <link id="bs-css" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap 5 CSS (Default RTL for Arabic) -->
+    <link id="bs-css" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.rtl.min.css" rel="stylesheet">
     
     <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 
     <style>
-        :root {
-            --primary-bg: #f8fafc;
-            --card-bg: #ffffff;
-            --text-main: #334155;
-            --text-muted: #64748b;
-            --accent: #ef4444;
-            --accent-green: #10b981;
-        }
-
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
-            background-color: var(--primary-bg);
-            color: var(--text-main);
             -webkit-font-smoothing: antialiased;
-            padding-top: 70px; /* Space for fixed navbar */
+            padding-top: 80px; 
+            background-color: #f8fafc;
         }
 
         /* Arabic Font Override */
@@ -39,208 +29,75 @@
             font-family: 'Noto Kufi Arabic', sans-serif;
         }
 
-        /* Fixed Language Navbar */
+        /* Navbar Glassmorphism */
         .lang-navbar {
-            background-color: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid #e2e8f0;
-            z-index: 1030;
+            background-color: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
         }
 
-        .lang-btn {
-            font-weight: 600;
-            padding: 0.5rem 1rem;
-            border-radius: 8px;
-            transition: all 0.2s;
+        /* Clean Hover Animation for Cards */
+        .hover-lift {
+            transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
         }
         
-        .lang-btn.active {
-            background-color: #0f172a;
-            color: white !important;
+        .hover-lift:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 1.25rem 2.5rem rgba(0,0,0,0.08) !important;
         }
 
-        /* Hero Section */
+        /* Hero Image Overlay styling */
         .hero-section {
-            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%), url('https://images.unsplash.com/photo-1604928141064-207cea6f5722?auto=format&fit=crop&w=1920&q=80');
-            background-blend-mode: overlay;
-            background-size: cover;
-            background-position: center;
-            padding: 4rem 0;
-            color: white;
-            border-radius: 16px;
-            margin-bottom: 2rem;
-            box-shadow: 0 10px 25px -5px rgba(0,0,0,0.2);
-        }
-
-        .hero-title {
-            font-weight: 800;
-            letter-spacing: 1px;
-            font-size: 2.5rem;
-        }
-        
-        html[dir="rtl"] .hero-title {
-            letter-spacing: 0;
-        }
-        
-        .hero-title span {
-            color: var(--accent);
-        }
-
-        /* Info Alert */
-        .info-alert {
-            background: #ffffff;
-            border: 1px solid #e2e8f0;
-            border-left: 5px solid var(--accent);
-            border-radius: 12px;
-            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
-        }
-        
-        html[dir="rtl"] .info-alert {
-            border-left: 1px solid #e2e8f0;
-            border-right: 5px solid var(--accent);
-        }
-
-        /* Product Cards */
-        .product-card {
-            background: var(--card-bg);
-            border: 1px solid #e2e8f0;
-            border-radius: 16px;
+            background: linear-gradient(145deg, #0f172a 0%, #1e293b 100%);
+            position: relative;
             overflow: hidden;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
         }
-
-        .product-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-            border-color: #cbd5e1;
-        }
-
-        .product-img {
-            width: 100%;
-            height: 220px;
-            object-fit: cover;
-            border-bottom: 1px solid #e2e8f0;
-        }
-
-        .product-body {
-            padding: 1.5rem;
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .product-badge {
-            background-color: #0f172a;
-            color: white;
-            padding: 0.25rem 0.75rem;
-            border-radius: 6px;
-            font-size: 0.85rem;
-            font-weight: 700;
-        }
-
-        .product-title {
-            font-size: 1.25rem;
-            font-weight: 800;
-            margin: 1rem 0 0.5rem 0;
-            color: #0f172a;
-        }
-
-        .product-desc {
-            font-size: 0.9rem;
-            color: var(--text-muted);
-            margin-bottom: 1rem;
-            flex-grow: 1;
-        }
-
-        .sizes-wrapper {
-            background-color: #f1f5f9;
-            padding: 0.5rem 0.75rem;
-            border-radius: 8px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            color: #475569;
-            margin-bottom: 1.5rem;
-            display: inline-block;
-        }
-
-        /* Pricing Grid */
-        .price-grid {
-            display: flex;
-            gap: 0.5rem;
-            background: #f8fafc;
-            border-radius: 12px;
-            padding: 0.5rem;
-            border: 1px solid #e2e8f0;
-        }
-
-        .price-box {
-            flex: 1;
-            text-align: center;
-            background: #ffffff;
-            border-radius: 8px;
-            padding: 0.75rem 0.25rem;
-            border: 1px solid #f1f5f9;
-        }
-
-        .price-label {
-            font-size: 0.7rem;
-            font-weight: 700;
-            color: #94a3b8;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 0.25rem;
-        }
-
-        .price-value {
-            font-size: 1.15rem;
-            font-weight: 800;
-            color: var(--accent-green);
-        }
-
-        .price-value.empty {
-            color: #cbd5e1;
+        
+        .hero-section::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: url('https://images.unsplash.com/photo-1604928141064-207cea6f5722?auto=format&fit=crop&w=1920&q=80') center/cover;
+            opacity: 0.15;
+            mix-blend-mode: overlay;
+            pointer-events: none;
         }
     </style>
 </head>
 <body>
 
-    <!-- Language Selector Navbar -->
-    <nav class="navbar fixed-top lang-navbar">
-        <div class="container d-flex justify-content-end gap-2">
-            <button class="btn btn-light lang-btn active" onclick="setLanguage('en')">EN</button>
-            <button class="btn btn-light lang-btn" onclick="setLanguage('tr')">TR</button>
-            <button class="btn btn-light lang-btn" onclick="setLanguage('ar')">عربي</button>
+    <nav class="navbar fixed-top lang-navbar shadow-sm">
+        <div class="container d-flex justify-content-end gap-2 py-1">
+            <button class="btn btn-outline-secondary border-0 rounded-pill px-3 lang-btn fw-bold" onclick="setLanguage('en')">EN</button>
+            <button class="btn btn-outline-secondary border-0 rounded-pill px-3 lang-btn fw-bold" onclick="setLanguage('tr')">TR</button>
+            <button class="btn btn-outline-secondary border-0 rounded-pill px-3 lang-btn fw-bold active" onclick="setLanguage('ar')">عربي</button>
         </div>
     </nav>
 
     <div class="container pb-5">
         
-        <!-- Hero Header -->
-        <header class="hero-section text-center">
-            <div class="px-3">
-                <h1 class="hero-title" id="t-brand">TIME <span>GLOBAL</span></h1>
-                <p class="lead fw-normal text-light opacity-75 mb-4" id="t-subtitle">Landscape & Decorative Stone Collection</p>
-                <span class="badge bg-danger fs-6 px-3 py-2 rounded-pill shadow-sm" id="t-badge">
-                    <i class="bi bi-tag-fill me-1"></i> 2026 Price List
+        <header class="hero-section text-center rounded-5 py-5 mb-5 shadow-sm text-white">
+            <div class="px-3 position-relative z-1">
+                <h1 class="fw-bolder display-4 mb-2" style="letter-spacing: -0.5px;">TIME <span class="text-danger">GLOBAL</span></h1>
+                <p class="lead fw-normal text-white-50 mb-4" id="t-subtitle">Landscape & Decorative Stone Collection</p>
+                <span class="badge text-bg-danger fs-6 px-4 py-2 rounded-pill shadow-sm" id="t-badge">
+                    <i class="bi bi-tag-fill mx-1"></i> 2026 Price List
                 </span>
             </div>
         </header>
 
-        <!-- Terms Note -->
-        <div class="alert info-alert d-flex align-items-center mb-5 p-3 p-md-4">
-            <i class="bi bi-info-circle-fill text-danger fs-2 mx-3"></i>
-            <div>
-                <h6 class="fw-bold text-dark mb-1" id="t-info-title">Pricing Information</h6>
-                <p class="mb-0 text-muted small" id="t-info-desc">
-                    All prices are quoted in <strong>USD ($)</strong>, estimated at a conversion rate of ~35.5 TRY/USD and rounded to the nearest dollar. Prices are <strong>Ex-Works (Fabrika Teslim)</strong> and exclude VAT (KDV).
-                </p>
+        <div class="card border-0 shadow-sm rounded-4 mb-5">
+            <div class="card-body p-4 d-flex align-items-start">
+                <i class="bi bi-info-circle-fill text-danger fs-2 mx-3"></i>
+                <div class="flex-grow-1">
+                    <h6 class="fw-bold text-dark mb-2 mt-1" id="t-info-title">Pricing Information</h6>
+                    <ul class="mb-0 text-muted small" id="t-info-list" style="padding-inline-start: 1.25rem; line-height: 1.7;">
+                        <!-- Rendered by JS -->
+                    </ul>
+                </div>
             </div>
         </div>
 
-        <!-- Product Grid -->
         <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4" id="productGrid">
             <!-- Rendered by JavaScript -->
         </div>
@@ -248,27 +105,35 @@
     </div>
 
     <script>
-        // Data and Translations
         const translations = {
             en: {
                 subtitle: "Landscape & Decorative Stone Collection",
-                badge: "<i class='bi bi-tag-fill me-1'></i> 2026 Price List",
+                badge: "2026 Price List",
                 infoTitle: "Pricing Information",
-                infoDesc: "All prices are quoted in <strong>USD ($)</strong>, estimated at a conversion rate of ~35.5 TRY/USD and rounded to the nearest dollar. Prices are <strong>Ex-Works</strong> and exclude VAT.",
+                infoList: [
+                    "All prices are quoted in <strong>USD ($)</strong>, estimated at a conversion rate of ~35.5 TRY/USD and rounded to the nearest dollar.",
+                    "Prices are <strong>Ex-Works (Fabrika Teslim)</strong> and exclude VAT."
+                ],
                 labels: { sizes: "Sizes", cuval: "Sack (Ton)", paket: "18kg Package", kafes: "Cage (Ton)" }
             },
             tr: {
                 subtitle: "Peyzaj ve Dekoratif Taş Koleksiyonu",
-                badge: "<i class='bi bi-tag-fill me-1'></i> 2026 Fiyat Listesi",
+                badge: "2026 Fiyat Listesi",
                 infoTitle: "Fiyatlandırma Bilgisi",
-                infoDesc: "Tüm fiyatlar <strong>ABD Doları ($)</strong> cinsindendir, ~35.5 TL/USD kuru üzerinden hesaplanıp en yakın dolara yuvarlanmıştır. Fiyatlar <strong>Fabrika Teslim</strong> olup KDV hariçtir.",
+                infoList: [
+                    "Tüm fiyatlar <strong>ABD Doları ($)</strong> cinsindendir, ~35.5 TL/USD kuru üzerinden hesaplanıp en yakın dolara yuvarlanmıştır.",
+                    "Fiyatlar <strong>Fabrika Teslim</strong> olup KDV hariçtir."
+                ],
                 labels: { sizes: "Ölçüler", cuval: "Çuval (Ton)", paket: "18kg Paket", kafes: "Kafes (Ton)" }
             },
             ar: {
                 subtitle: "مجموعة أحجار المناظر الطبيعية والديكور",
-                badge: "<i class='bi bi-tag-fill ms-1'></i> قائمة أسعار 2026",
+                badge: "قائمة أسعار 2026",
                 infoTitle: "معلومات التسعير",
-                infoDesc: "جميع الأسعار معروضة بـ <strong>الدولار الأمريكي ($)</strong>، ومقدرة بسعر صرف ~35.5 ليرة تركية/دولار ومقربة إلى أقرب دولار. الأسعار <strong>تسليم المصنع</strong> ولا تشمل ضريبة القيمة المضافة.",
+                infoList: [
+                    "جميع الأسعار معروضة بـ <strong>الدولار الأمريكي ($)</strong>، ومقدرة بسعر صرف ~35.5 ليرة تركية/دولار ومقربة إلى أقرب دولار.",
+                    "الأسعار <strong>تسليم المصنع</strong> ولا تشمل ضريبة القيمة المضافة."
+                ],
                 labels: { sizes: "المقاسات", cuval: "كيس (طن)", paket: "عبوة 18 كجم", kafes: "قفص (طن)" }
             }
         };
@@ -279,7 +144,7 @@
                 img: "https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=600&q=80",
                 sizes: "(1-2) (2-4) (4-6) (6-8) (10-15-20) cm",
                 prices: ["$155", "$183", "$225"],
-                title: { en: "TAMBURLU KRİSTAL", tr: "TAMBURLU KRİSTAL", ar: "كريستال مطحون" },
+                title: "KRİSTAL",
                 desc: {
                     en: "High-grade pure white tumbled crystal marble stones, ideal for premium landscaping and architectural finishes.",
                     tr: "Birinci sınıf peyzaj ve mimari kaplamalar için ideal, yüksek kaliteli saf beyaz tamburlu kristal mermer taşlar.",
@@ -291,7 +156,7 @@
                 img: "https://images.unsplash.com/photo-1572945722378-574cf309b5fa?auto=format&fit=crop&w=600&q=80",
                 sizes: "(1-2) (2-4) (4-6) (6-8) (10-15-20) cm",
                 prices: ["$183", "$211", "$239"],
-                title: { en: "TAMBURLU BLACK", tr: "TAMBURLU BLACK", ar: "أسود مطحون" },
+                title: "BLACK",
                 desc: {
                     en: "Deep black tumbled stones offering a striking, modern contrast for contemporary gardens and water features.",
                     tr: "Modern bahçeler ve su özellikleri için çarpıcı, modern bir kontrast sunan derin siyah tamburlu taşlar.",
@@ -303,7 +168,7 @@
                 img: "https://images.unsplash.com/photo-1513836279014-a89f7a76ae86?auto=format&fit=crop&w=600&q=80",
                 sizes: "(1-2) (2-4) (4-6) (6-8) (10-15-20) cm",
                 prices: ["$183", "$211", "$239"],
-                title: { en: "TAMBURLU BORDO", tr: "TAMBURLU BORDO", ar: "عنابي مطحون" },
+                title: "BORDO",
                 desc: {
                     en: "Rich burgundy red tumbled decorative stones that add warmth and vibrant earth tones to outdoor pathways.",
                     tr: "Dış mekan yollarına sıcaklık ve canlı toprak tonları katan zengin bordo kırmızı tamburlu dekoratif taşlar.",
@@ -315,7 +180,7 @@
                 img: "https://images.unsplash.com/photo-1584467735871-8e853e84e4e3?auto=format&fit=crop&w=600&q=80",
                 sizes: "(1-2) (2-4) (4-6) (6-8) (10-15-20) cm",
                 prices: ["$211", "$239", "$268"],
-                title: { en: "TAMBURLU GRANİT", tr: "TAMBURLU GRANİT", ar: "جرانيت مطحون" },
+                title: "GRANİT",
                 desc: {
                     en: "Extremely durable tumbled grey granite pebbles designed for high-traffic paving and commercial landscaping.",
                     tr: "Yüksek trafikli döşemeler ve ticari peyzaj için tasarlanmış son derece dayanıklı tamburlu gri granit çakıllar.",
@@ -327,7 +192,7 @@
                 img: "https://images.unsplash.com/photo-1533158307587-828f0a76ef46?auto=format&fit=crop&w=600&q=80",
                 sizes: "(1-2) (2-4) (4-6) (6-8) (10-15-20) cm",
                 prices: ["$282", "$310", "$338"],
-                title: { en: "TAMBURLU RAINBOW", tr: "TAMBURLU RAINBOW", ar: "قوس قزح مطحون" },
+                title: "RAINBOW",
                 desc: {
                     en: "Multi-colored natural stones featuring warm ochre, amber, and terracotta hues for eye-catching decorative accents.",
                     tr: "Göz alıcı dekoratif vurgular için sıcak aşı boyası, kehribar ve pişmiş toprak tonlarına sahip çok renkli doğal taşlar.",
@@ -339,7 +204,7 @@
                 img: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=600&q=80",
                 sizes: "(1-2) (2-4) (4-6) (6-8) (10-15-20) cm",
                 prices: ["$282", "$310", "$338"],
-                title: { en: "TAMBURLU ANGEL", tr: "TAMBURLU ANGEL", ar: "ملاك مطحون" },
+                title: "ANGEL",
                 desc: {
                     en: "Soft silver-blue-grey tumbled decorative stones providing an elegant, serene aesthetic for upscale landscapes.",
                     tr: "Lüks peyzajlar için zarif, sakin bir estetik sağlayan yumuşak gümüş-mavi-gri tamburlu dekoratif taşlar.",
@@ -351,7 +216,7 @@
                 img: "https://images.unsplash.com/photo-1518837695005-2083093ee35b?auto=format&fit=crop&w=600&q=80",
                 sizes: "(1-2) (2-4) (4-6) (6-8) (10-15-20) cm",
                 prices: ["$169", "$197", "$225"],
-                title: { en: "TAMBURLU BAZALT", tr: "TAMBURLU BAZALT", ar: "بازلت مطحون" },
+                title: "BAZALT",
                 desc: {
                     en: "Robust volcanic basalt stones with refined tumbled edges, offering superior longevity and timeless dark grey tones.",
                     tr: "Üstün uzun ömür ve zamansız koyu gri tonlar sunan, rafine tamburlu kenarlara sahip sağlam volkanik bazalt taşlar.",
@@ -363,7 +228,7 @@
                 img: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=600&q=80",
                 sizes: "(1-2) (2-4) (4-6) (6-8) (10-15-20) cm",
                 prices: ["$113", "$141", "$183"],
-                title: { en: "DERE ÇAKILI", tr: "DERE ÇAKILI", ar: "حصى النهر" },
+                title: "DERE ÇAKILI",
                 desc: {
                     en: "Natural multi-colored river pebbles smoothed by water currents, perfect for naturalistic garden beds and drainage.",
                     tr: "Su akıntılarıyla pürüzsüzleşmiş doğal çok renkli dere çakılları, natüralist bahçe yatakları ve drenaj için mükemmeldir.",
@@ -375,16 +240,16 @@
                 img: "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&w=600&q=80",
                 sizes: "(1-2) cm",
                 prices: ["$85", "$127", "—"],
-                title: { en: "POMZA TAŞI", tr: "POMZA TAŞI", ar: "حجر الخفاف" },
+                title: "POMZA TAŞI",
                 desc: {
                     en: "Lightweight volcanic pumice stone ideal for soil aeration, drainage enhancement, and lightweight concrete mixes.",
                     tr: "Toprak havalandırması, drenajın iyileştirilmesi ve hafif beton karışımları için ideal hafif volkanik pomza taşı.",
-                    ar: "حجر خفاف بركاني خفيف الوزن مثالي لتهوية التربة وتحسين الصرف وخلطات الخرسانة خفيفة الوزن."
+                    ar: "حجر خفاف بركاني بركاني خفيف الوزن مثالي لتهوية التربة وتحسين الصرف وخلطات الخرسانة خفيفة الوزن."
                 }
             }
         ];
 
-        let currentLang = 'en';
+        let currentLang = 'ar';
 
         function renderGrid() {
             const grid = document.getElementById('productGrid');
@@ -392,36 +257,49 @@
             grid.innerHTML = '';
 
             products.forEach(p => {
-                const k1 = p.prices[2] === "—" ? "empty" : "";
+                const isKafesEmpty = p.prices[2] === "—";
+                const kafesColor = isKafesEmpty ? "text-muted opacity-50 fw-normal" : "text-success fw-bolder";
+                const kafesVal = isKafesEmpty ? "—" : p.prices[2];
                 
                 const cardHTML = `
                     <div class="col">
-                        <div class="product-card shadow-sm">
-                            <img src="${p.img}" alt="${p.title[currentLang]}" class="product-img">
-                            <div class="product-body">
-                                <div>
-                                    <span class="product-badge">${p.code}</span>
-                                </div>
-                                <h3 class="product-title">${p.title[currentLang]}</h3>
-                                <p class="product-desc">${p.desc[currentLang]}</p>
+                        <div class="card h-100 border-0 rounded-4 shadow-sm hover-lift">
+                            <div class="position-relative">
+                                <img src="${p.img}" alt="${p.title}" class="card-img-top rounded-top-4" style="height: 220px; object-fit: cover;">
+                                <span class="badge text-bg-light px-3 py-1 text-dark rounded-3 position-absolute top-0 start-0 m-3 shadow-sm border border-light" style="font-size: 0.85rem; letter-spacing: 0.5px; backdrop-filter: blur(8px); background-color: rgba(255,255,255,0.85) !important;">
+                                    ${p.code}
+                                </span>
+                            </div>
+                            
+                            <div class="card-body d-flex flex-column p-4">
+                                <h4 class="card-title fw-bold text-dark mb-3 mt-1" style="font-size: 1.25rem;">${p.title}</h4>
                                 
-                                <div class="sizes-wrapper">
-                                    <i class="bi bi-arrows-angle-expand mx-1"></i> 
-                                    <span class="opacity-75">${t.labels.sizes}:</span> ${p.sizes}
+                                <p class="card-text text-secondary small mb-4 flex-grow-1" style="line-height: 1.6;">${p.desc[currentLang]}</p>
+                                
+                                <div class="d-flex align-items-center justify-content-center bg-light rounded-3 py-2 px-3 mb-4 border border-light-subtle shadow-sm">
+                                    <i class="bi bi-arrows-angle-expand text-muted mx-2"></i> 
+                                    <span class="small fw-semibold text-muted mx-1">${t.labels.sizes}:</span> 
+                                    <span class="small fw-bold text-dark" style="direction: ltr; unicode-bidi: embed;">${p.sizes}</span>
                                 </div>
 
-                                <div class="price-grid">
-                                    <div class="price-box">
-                                        <div class="price-label">${t.labels.cuval}</div>
-                                        <div class="price-value">${p.prices[0]}</div>
+                                <div class="row g-2 text-center mt-auto">
+                                    <div class="col-4">
+                                        <div class="p-2 rounded-3 border bg-white h-100 d-flex flex-column justify-content-center">
+                                            <span class="text-uppercase text-muted d-block mb-1" style="font-size: 0.65rem; font-weight: 700;">${t.labels.cuval}</span>
+                                            <span class="d-block fw-bolder text-success" style="font-size: 1.1rem;">${p.prices[0]}</span>
+                                        </div>
                                     </div>
-                                    <div class="price-box">
-                                        <div class="price-label">${t.labels.paket}</div>
-                                        <div class="price-value">${p.prices[1]}</div>
+                                    <div class="col-4">
+                                        <div class="p-2 rounded-3 border bg-white h-100 d-flex flex-column justify-content-center">
+                                            <span class="text-uppercase text-muted d-block mb-1" style="font-size: 0.65rem; font-weight: 700;">${t.labels.paket}</span>
+                                            <span class="d-block fw-bolder text-success" style="font-size: 1.1rem;">${p.prices[1]}</span>
+                                        </div>
                                     </div>
-                                    <div class="price-box">
-                                        <div class="price-label">${t.labels.kafes}</div>
-                                        <div class="price-value ${k1}">${p.prices[2]}</div>
+                                    <div class="col-4">
+                                        <div class="p-2 rounded-3 border bg-white h-100 d-flex flex-column justify-content-center">
+                                            <span class="text-uppercase text-muted d-block mb-1" style="font-size: 0.65rem; font-weight: 700;">${t.labels.kafes}</span>
+                                            <span class="d-block ${kafesColor}" style="font-size: 1.1rem;">${kafesVal}</span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -451,21 +329,30 @@
             // Update Static Texts
             const t = translations[lang];
             document.getElementById('t-subtitle').innerHTML = t.subtitle;
-            document.getElementById('t-badge').innerHTML = t.badge;
+            document.getElementById('t-badge').innerHTML = `<i class="bi bi-tag-fill mx-1"></i> ${t.badge}`;
             document.getElementById('t-info-title').innerHTML = t.infoTitle;
-            document.getElementById('t-info-desc').innerHTML = t.infoDesc;
+            
+            // Build the un-ordered list for pricing information
+            const listEl = document.getElementById('t-info-list');
+            listEl.innerHTML = t.infoList.map(item => `<li class="mb-1">${item}</li>`).join('');
 
             // Update Active Button State
-            document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
-            event.target.classList.add('active');
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active', 'btn-secondary', 'text-white');
+                btn.classList.add('btn-outline-secondary');
+                if (btn.getAttribute('onclick').includes(`'${lang}'`)) {
+                    btn.classList.add('active', 'btn-secondary', 'text-white');
+                    btn.classList.remove('btn-outline-secondary');
+                }
+            });
 
             // Re-render Product Grid
             renderGrid();
         }
 
-        // Initial Render
+        // Initial Render starts on Arabic
         document.addEventListener('DOMContentLoaded', () => {
-            renderGrid();
+            setLanguage(currentLang);
         });
     </script>
 </body>
