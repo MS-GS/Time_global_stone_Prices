@@ -115,6 +115,55 @@
             }
         }
 
+        /* Contact info bar at top */
+        .contact-bar {
+            background: linear-gradient(145deg, #0f172a 0%, #1e293b 100%);
+            color: white;
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid #dc3545;
+        }
+
+        .contact-bar-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-info-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        .contact-info-item i {
+            font-size: 1.3rem;
+            color: #dc3545;
+        }
+
+        .contact-info-text {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+
+        .contact-label {
+            font-size: 0.75rem;
+            opacity: 0.8;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .contact-value {
+            font-weight: 700;
+            font-size: 1rem;
+            color: white;
+        }
+
         /* Mobile-optimized card body padding */
         .card-body {
             padding: 1.25rem !important;
@@ -158,13 +207,63 @@
             flex-wrap: wrap;
             gap: 0.5rem;
         }
+
+        /* Print styles for PDF */
+        @media print {
+            .contact-bar {
+                page-break-after: avoid;
+                background: white !important;
+                color: #0f172a !important;
+                border: 2px solid #0f172a !important;
+                padding: 1.5rem !important;
+            }
+
+            .contact-info-item i {
+                color: #0f172a !important;
+            }
+
+            .contact-value {
+                color: #0f172a !important;
+            }
+
+            .contact-label {
+                color: #666 !important;
+            }
+
+            .hero-section {
+                page-break-after: avoid;
+            }
+        }
     </style>
 </head>
 
 <body>
 
-
     <div class="container">
+
+        <!-- Contact Information Bar at Top -->
+        <div class="contact-bar">
+            <div class="contact-bar-content">
+                <div class="contact-info-item">
+                    <i class="bi bi-whatsapp"></i>
+                    <div class="contact-info-text">
+                        <span class="contact-label">WhatsApp</span>
+                        <a href="https://wa.me/905538559956" style="text-decoration: none; color: white;">
+                            <span class="contact-value">+90 553 855 99 56</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="contact-info-item">
+                    <i class="bi bi-instagram"></i>
+                    <div class="contact-info-text">
+                        <span class="contact-label">Instagram</span>
+                        <a href="https://www.instagram.com/time_global_stone/" style="text-decoration: none; color: white;">
+                            <span class="contact-value">@time_global_stone</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <header class="hero-section text-center mb-4 mb-md-5 shadow-sm text-white">
             <div class="px-2 px-md-3 position-relative z-1">
