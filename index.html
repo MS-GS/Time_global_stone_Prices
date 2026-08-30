@@ -1,18 +1,22 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TIME GLOBAL - Premium Stone Collection</title>
-    
+    <title>TIME GLOBAL - Premium Stones</title>
+
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Kufi+Arabic:wght@400;600;700&display=swap" rel="stylesheet">
-    
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Kufi+Arabic:wght@400;600;700&display=swap"
+        rel="stylesheet">
+
     <!-- Bootstrap 5 CSS (Default RTL for Arabic) -->
-    <link id="bs-css" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.rtl.min.css" rel="stylesheet">
-    
+    <link id="bs-css" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.rtl.min.css"
+        rel="stylesheet">
+
     <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 
@@ -20,7 +24,6 @@
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
             -webkit-font-smoothing: antialiased;
-            padding-top: 80px; 
             background-color: #f8fafc;
         }
 
@@ -33,17 +36,17 @@
         .lang-navbar {
             background-color: rgba(255, 255, 255, 0.85);
             backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(0,0,0,0.05);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
         }
 
         /* Clean Hover Animation for Cards */
         .hover-lift {
             transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
         }
-        
+
         .hover-lift:hover {
             transform: translateY(-6px);
-            box-shadow: 0 1.25rem 2.5rem rgba(0,0,0,0.08) !important;
+            box-shadow: 0 1.25rem 2.5rem rgba(0, 0, 0, 0.08) !important;
         }
 
         /* Hero Image Overlay styling */
@@ -52,11 +55,14 @@
             position: relative;
             overflow: hidden;
         }
-        
+
         .hero-section::after {
             content: '';
             position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
             background: url('https://images.unsplash.com/photo-1604928141064-207cea6f5722?auto=format&fit=crop&w=1920&q=80') center/cover;
             opacity: 0.15;
             mix-blend-mode: overlay;
@@ -64,24 +70,19 @@
         }
     </style>
 </head>
+
 <body>
 
-    <nav class="navbar fixed-top lang-navbar shadow-sm">
-        <div class="container d-flex justify-content-end gap-2 py-1">
-            <button class="btn btn-outline-secondary border-0 rounded-pill px-3 lang-btn fw-bold" onclick="setLanguage('en')">EN</button>
-            <button class="btn btn-outline-secondary border-0 rounded-pill px-3 lang-btn fw-bold" onclick="setLanguage('tr')">TR</button>
-            <button class="btn btn-outline-secondary border-0 rounded-pill px-3 lang-btn fw-bold active" onclick="setLanguage('ar')">عربي</button>
-        </div>
-    </nav>
 
-    <div class="container pb-5">
-        
+    <div class="container p-5">
+
         <header class="hero-section text-center rounded-5 py-5 mb-5 shadow-sm text-white">
             <div class="px-3 position-relative z-1">
-                <h1 class="fw-bolder display-4 mb-2" style="letter-spacing: -0.5px;">TIME <span class="text-danger">GLOBAL</span></h1>
-                <p class="lead fw-normal text-white-50 mb-4" id="t-subtitle">Landscape & Decorative Stone Collection</p>
+                <h1 class="fw-bolder display-4 mb-2" style="letter-spacing: -0.5px;">TIME <span
+                        class="text-danger">GLOBAL</span></h1>
+                <p class="lead fw-normal text-white-50 mb-4" id="t-subtitle">مجموعة أحجار المناظر الطبيعية والديكور</p>
                 <span class="badge text-bg-danger fs-6 px-4 py-2 rounded-pill shadow-sm" id="t-badge">
-                    <i class="bi bi-tag-fill mx-1"></i> 2026 Price List
+                    <i class="bi bi-tag-fill mx-1"></i> قائمة أسعار 2026
                 </span>
             </div>
         </header>
@@ -90,9 +91,11 @@
             <div class="card-body p-4 d-flex align-items-start">
                 <i class="bi bi-info-circle-fill text-danger fs-2 mx-3"></i>
                 <div class="flex-grow-1">
-                    <h6 class="fw-bold text-dark mb-2 mt-1" id="t-info-title">Pricing Information</h6>
-                    <ul class="mb-0 text-muted small" id="t-info-list" style="padding-inline-start: 1.25rem; line-height: 1.7;">
-                        <!-- Rendered by JS -->
+                    <h6 class="fw-bold text-dark mb-2 mt-1" id="t-info-title">ملاحظات مهمة</h6>
+                    <ul class="mb-0 text-muted small" id="t-info-list"
+                        style="padding-inline-start: 1.25rem; line-height: 1.7;">
+                        <li> الحد الأدنى للطلب الدولي : 27 طن</li>
+                        <li class="mb-1">الأسعار <strong>تسليم المصنع</strong> ولا تشمل ضريبة القيمة المضافة.</li>
                     </ul>
                 </div>
             </div>
@@ -105,162 +108,83 @@
     </div>
 
     <script>
-        const translations = {
-            en: {
-                subtitle: "Landscape & Decorative Stone Collection",
-                badge: "2026 Price List",
-                infoTitle: "Pricing Information",
-                infoList: [
-                    "All prices are quoted in <strong>USD ($)</strong>, estimated at a conversion rate of ~35.5 TRY/USD and rounded to the nearest dollar.",
-                    "Prices are <strong>Ex-Works (Fabrika Teslim)</strong> and exclude VAT."
-                ],
-                labels: { sizes: "Sizes", cuval: "Sack (Ton)", paket: "18kg Package", kafes: "Cage (Ton)" }
-            },
-            tr: {
-                subtitle: "Peyzaj ve Dekoratif Taş Koleksiyonu",
-                badge: "2026 Fiyat Listesi",
-                infoTitle: "Fiyatlandırma Bilgisi",
-                infoList: [
-                    "Tüm fiyatlar <strong>ABD Doları ($)</strong> cinsindendir, ~35.5 TL/USD kuru üzerinden hesaplanıp en yakın dolara yuvarlanmıştır.",
-                    "Fiyatlar <strong>Fabrika Teslim</strong> olup KDV hariçtir."
-                ],
-                labels: { sizes: "Ölçüler", cuval: "Çuval (Ton)", paket: "18kg Paket", kafes: "Kafes (Ton)" }
-            },
-            ar: {
-                subtitle: "مجموعة أحجار المناظر الطبيعية والديكور",
-                badge: "قائمة أسعار 2026",
-                infoTitle: "معلومات التسعير",
-                infoList: [
-                    "جميع الأسعار معروضة بـ <strong>الدولار الأمريكي ($)</strong>، ومقدرة بسعر صرف ~35.5 ليرة تركية/دولار ومقربة إلى أقرب دولار.",
-                    "الأسعار <strong>تسليم المصنع</strong> ولا تشمل ضريبة القيمة المضافة."
-                ],
-                labels: { sizes: "المقاسات", cuval: "كيس (طن)", paket: "عبوة 18 كجم", kafes: "قفص (طن)" }
-            }
-        };
-
         const products = [
             {
                 code: "A-01",
-                img: "https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=600&q=80",
+                img: "white.jpg",
                 sizes: "(1-2) (2-4) (4-6) (6-8) (10-15-20) cm",
                 prices: ["$155", "$183", "$225"],
-                title: "KRİSTAL",
-                desc: {
-                    en: "High-grade pure white tumbled crystal marble stones, ideal for premium landscaping and architectural finishes.",
-                    tr: "Birinci sınıf peyzaj ve mimari kaplamalar için ideal, yüksek kaliteli saf beyaz tamburlu kristal mermer taşlar.",
-                    ar: "أحجار رخام كريستالية بيضاء نقية عالية الجودة، مثالية للمناظر الطبيعية الفاخرة والتشطيبات المعمارية."
-                }
+                title: "WHITE"
             },
             {
                 code: "A-02",
-                img: "https://images.unsplash.com/photo-1572945722378-574cf309b5fa?auto=format&fit=crop&w=600&q=80",
+                img: "black.jpg",
                 sizes: "(1-2) (2-4) (4-6) (6-8) (10-15-20) cm",
                 prices: ["$183", "$211", "$239"],
-                title: "BLACK",
-                desc: {
-                    en: "Deep black tumbled stones offering a striking, modern contrast for contemporary gardens and water features.",
-                    tr: "Modern bahçeler ve su özellikleri için çarpıcı, modern bir kontrast sunan derin siyah tamburlu taşlar.",
-                    ar: "أحجار سوداء داكنة مطحونة توفر تبايناً مذهلاً وحديثاً للحدائق المعاصرة والمعالم المائية."
-                }
+                title: "BLACK"
             },
             {
                 code: "A-03",
-                img: "https://images.unsplash.com/photo-1513836279014-a89f7a76ae86?auto=format&fit=crop&w=600&q=80",
+                img: "maroon.jpg",
                 sizes: "(1-2) (2-4) (4-6) (6-8) (10-15-20) cm",
                 prices: ["$183", "$211", "$239"],
-                title: "BORDO",
-                desc: {
-                    en: "Rich burgundy red tumbled decorative stones that add warmth and vibrant earth tones to outdoor pathways.",
-                    tr: "Dış mekan yollarına sıcaklık ve canlı toprak tonları katan zengin bordo kırmızı tamburlu dekoratif taşlar.",
-                    ar: "أحجار زينة حمراء عنابية غنية مطحونة تضفي الدفء ودرجات ألوان الأرض النابضة بالحياة على الممرات الخارجية."
-                }
+                title: "MAROON"
             },
             {
                 code: "A-04",
-                img: "https://images.unsplash.com/photo-1584467735871-8e853e84e4e3?auto=format&fit=crop&w=600&q=80",
+                img: "granite.jpg",
                 sizes: "(1-2) (2-4) (4-6) (6-8) (10-15-20) cm",
                 prices: ["$211", "$239", "$268"],
-                title: "GRANİT",
-                desc: {
-                    en: "Extremely durable tumbled grey granite pebbles designed for high-traffic paving and commercial landscaping.",
-                    tr: "Yüksek trafikli döşemeler ve ticari peyzaj için tasarlanmış son derece dayanıklı tamburlu gri granit çakıllar.",
-                    ar: "حصى جرانيت رمادي مطحون متين للغاية مصمم للرصف عالي الحركة والمناظر الطبيعية التجارية."
-                }
+                title: "GRANITE"
             },
             {
                 code: "A-05",
-                img: "https://images.unsplash.com/photo-1533158307587-828f0a76ef46?auto=format&fit=crop&w=600&q=80",
+                img: "rainbow.jpg",
                 sizes: "(1-2) (2-4) (4-6) (6-8) (10-15-20) cm",
                 prices: ["$282", "$310", "$338"],
-                title: "RAINBOW",
-                desc: {
-                    en: "Multi-colored natural stones featuring warm ochre, amber, and terracotta hues for eye-catching decorative accents.",
-                    tr: "Göz alıcı dekoratif vurgular için sıcak aşı boyası, kehribar ve pişmiş toprak tonlarına sahip çok renkli doğal taşlar.",
-                    ar: "أحجار طبيعية متعددة الألوان تتميز بدرجات دافئة من المغرة والعنبر والتيراكوتا لزينة لافتة للنظر."
-                }
+                title: "RAINBOW"
             },
             {
                 code: "A-06",
-                img: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=600&q=80",
+                img: "green.jpg",
                 sizes: "(1-2) (2-4) (4-6) (6-8) (10-15-20) cm",
                 prices: ["$282", "$310", "$338"],
-                title: "ANGEL",
-                desc: {
-                    en: "Soft silver-blue-grey tumbled decorative stones providing an elegant, serene aesthetic for upscale landscapes.",
-                    tr: "Lüks peyzajlar için zarif, sakin bir estetik sağlayan yumuşak gümüş-mavi-gri tamburlu dekoratif taşlar.",
-                    ar: "أحجار زينة ناعمة باللون الفضي والأزرق والرمادي توفر جمالية أنيقة وهادئة للمناظر الطبيعية الراقية."
-                }
+                title: "GREEN"
             },
             {
                 code: "A-07",
-                img: "https://images.unsplash.com/photo-1518837695005-2083093ee35b?auto=format&fit=crop&w=600&q=80",
+                img: "basalt.jpg",
                 sizes: "(1-2) (2-4) (4-6) (6-8) (10-15-20) cm",
                 prices: ["$169", "$197", "$225"],
-                title: "BAZALT",
-                desc: {
-                    en: "Robust volcanic basalt stones with refined tumbled edges, offering superior longevity and timeless dark grey tones.",
-                    tr: "Üstün uzun ömür ve zamansız koyu gri tonlar sunan, rafine tamburlu kenarlara sahip sağlam volkanik bazalt taşlar.",
-                    ar: "أحجار بازلت بركانية قوية بحواف مصقولة، توفر عمراً أطول ودرجات رمادية داكنة خالدة."
-                }
+                title: "BASALT"
             },
             {
                 code: "A-08",
-                img: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=600&q=80",
+                img: "RIVER.jpg",
                 sizes: "(1-2) (2-4) (4-6) (6-8) (10-15-20) cm",
                 prices: ["$113", "$141", "$183"],
-                title: "DERE ÇAKILI",
-                desc: {
-                    en: "Natural multi-colored river pebbles smoothed by water currents, perfect for naturalistic garden beds and drainage.",
-                    tr: "Su akıntılarıyla pürüzsüzleşmiş doğal çok renkli dere çakılları, natüralist bahçe yatakları ve drenaj için mükemmeldir.",
-                    ar: "حصى نهر طبيعي متعدد الألوان تم تنعيمه بواسطة تيارات المياه، مثالي لأحواض الحدائق الطبيعية والتصريف."
-                }
+                title: "REVER PEBBLES"
             },
             {
                 code: "A-09",
-                img: "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&w=600&q=80",
+                img: "POMZA-TAŞI.jpg",
                 sizes: "(1-2) cm",
                 prices: ["$85", "$127", "—"],
-                title: "POMZA TAŞI",
-                desc: {
-                    en: "Lightweight volcanic pumice stone ideal for soil aeration, drainage enhancement, and lightweight concrete mixes.",
-                    tr: "Toprak havalandırması, drenajın iyileştirilmesi ve hafif beton karışımları için ideal hafif volkanik pomza taşı.",
-                    ar: "حجر خفاف بركاني بركاني خفيف الوزن مثالي لتهوية التربة وتحسين الصرف وخلطات الخرسانة خفيفة الوزن."
-                }
+                title: "POMZA TAŞI"
             }
         ];
 
-        let currentLang = 'ar';
+        const labels = { sizes: "المقاسات", cuval: "كيس (طن)", paket: "عبوة 18 كجم", kafes: "قفص (طن)" };
 
         function renderGrid() {
             const grid = document.getElementById('productGrid');
-            const t = translations[currentLang];
             grid.innerHTML = '';
 
             products.forEach(p => {
                 const isKafesEmpty = p.prices[2] === "—";
                 const kafesColor = isKafesEmpty ? "text-muted opacity-50 fw-normal" : "text-success fw-bolder";
                 const kafesVal = isKafesEmpty ? "—" : p.prices[2];
-                
+
                 const cardHTML = `
                     <div class="col">
                         <div class="card h-100 border-0 rounded-4 shadow-sm hover-lift">
@@ -274,30 +198,28 @@
                             <div class="card-body d-flex flex-column p-4">
                                 <h4 class="card-title fw-bold text-dark mb-3 mt-1" style="font-size: 1.25rem;">${p.title}</h4>
                                 
-                                <p class="card-text text-secondary small mb-4 flex-grow-1" style="line-height: 1.6;">${p.desc[currentLang]}</p>
-                                
                                 <div class="d-flex align-items-center justify-content-center bg-light rounded-3 py-2 px-3 mb-4 border border-light-subtle shadow-sm">
                                     <i class="bi bi-arrows-angle-expand text-muted mx-2"></i> 
-                                    <span class="small fw-semibold text-muted mx-1">${t.labels.sizes}:</span> 
+                                    <span class="small fw-semibold text-muted mx-1">${labels.sizes}:</span> 
                                     <span class="small fw-bold text-dark" style="direction: ltr; unicode-bidi: embed;">${p.sizes}</span>
                                 </div>
 
                                 <div class="row g-2 text-center mt-auto">
                                     <div class="col-4">
                                         <div class="p-2 rounded-3 border bg-white h-100 d-flex flex-column justify-content-center">
-                                            <span class="text-uppercase text-muted d-block mb-1" style="font-size: 0.65rem; font-weight: 700;">${t.labels.cuval}</span>
+                                            <span class="text-uppercase text-muted d-block mb-1" style="font-size: 0.65rem; font-weight: 700;">${labels.cuval}</span>
                                             <span class="d-block fw-bolder text-success" style="font-size: 1.1rem;">${p.prices[0]}</span>
                                         </div>
                                     </div>
                                     <div class="col-4">
                                         <div class="p-2 rounded-3 border bg-white h-100 d-flex flex-column justify-content-center">
-                                            <span class="text-uppercase text-muted d-block mb-1" style="font-size: 0.65rem; font-weight: 700;">${t.labels.paket}</span>
+                                            <span class="text-uppercase text-muted d-block mb-1" style="font-size: 0.65rem; font-weight: 700;">${labels.paket}</span>
                                             <span class="d-block fw-bolder text-success" style="font-size: 1.1rem;">${p.prices[1]}</span>
                                         </div>
                                     </div>
                                     <div class="col-4">
                                         <div class="p-2 rounded-3 border bg-white h-100 d-flex flex-column justify-content-center">
-                                            <span class="text-uppercase text-muted d-block mb-1" style="font-size: 0.65rem; font-weight: 700;">${t.labels.kafes}</span>
+                                            <span class="text-uppercase text-muted d-block mb-1" style="font-size: 0.65rem; font-weight: 700;">${labels.kafes}</span>
                                             <span class="d-block ${kafesColor}" style="font-size: 1.1rem;">${kafesVal}</span>
                                         </div>
                                     </div>
@@ -310,50 +232,15 @@
             });
         }
 
-        function setLanguage(lang) {
-            currentLang = lang;
-            const isRTL = lang === 'ar';
-            
-            // Set Document Direction
-            document.documentElement.setAttribute('dir', isRTL ? 'rtl' : 'ltr');
-            document.documentElement.setAttribute('lang', lang);
+        document.documentElement.setAttribute('dir', 'rtl');
+        document.documentElement.setAttribute('lang', 'ar');
+        const bsLink = document.getElementById('bs-css');
+        bsLink.href = "https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.rtl.min.css";
 
-            // Toggle Bootstrap RTL CSS
-            const bsLink = document.getElementById('bs-css');
-            if(isRTL) {
-                bsLink.href = "https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.rtl.min.css";
-            } else {
-                bsLink.href = "https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css";
-            }
-
-            // Update Static Texts
-            const t = translations[lang];
-            document.getElementById('t-subtitle').innerHTML = t.subtitle;
-            document.getElementById('t-badge').innerHTML = `<i class="bi bi-tag-fill mx-1"></i> ${t.badge}`;
-            document.getElementById('t-info-title').innerHTML = t.infoTitle;
-            
-            // Build the un-ordered list for pricing information
-            const listEl = document.getElementById('t-info-list');
-            listEl.innerHTML = t.infoList.map(item => `<li class="mb-1">${item}</li>`).join('');
-
-            // Update Active Button State
-            document.querySelectorAll('.lang-btn').forEach(btn => {
-                btn.classList.remove('active', 'btn-secondary', 'text-white');
-                btn.classList.add('btn-outline-secondary');
-                if (btn.getAttribute('onclick').includes(`'${lang}'`)) {
-                    btn.classList.add('active', 'btn-secondary', 'text-white');
-                    btn.classList.remove('btn-outline-secondary');
-                }
-            });
-
-            // Re-render Product Grid
-            renderGrid();
-        }
-
-        // Initial Render starts on Arabic
         document.addEventListener('DOMContentLoaded', () => {
-            setLanguage(currentLang);
+            renderGrid();
         });
     </script>
 </body>
+
 </html>
