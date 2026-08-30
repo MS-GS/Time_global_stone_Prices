@@ -32,6 +32,29 @@
             font-family: 'Noto Kufi Arabic', sans-serif;
         }
 
+        /* Responsive container padding */
+        .container {
+            padding: 1rem !important;
+        }
+
+        @media (min-width: 576px) {
+            .container {
+                padding: 2rem !important;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .container {
+                padding: 3rem !important;
+            }
+        }
+
+        @media (min-width: 992px) {
+            .container {
+                padding: 4rem !important;
+            }
+        }
+
         /* Navbar Glassmorphism */
         .lang-navbar {
             background-color: rgba(255, 255, 255, 0.85);
@@ -68,32 +91,76 @@
             mix-blend-mode: overlay;
             pointer-events: none;
         }
+
+        /* Mobile-optimized hero padding */
+        .hero-section {
+            padding: 2rem 0.75rem !important;
+        }
+
+        @media (min-width: 768px) {
+            .hero-section {
+                padding: 3rem 0.75rem !important;
+            }
+        }
+
+        /* Mobile-optimized card body padding */
+        .card-body {
+            padding: 1.25rem !important;
+        }
+
+        @media (min-width: 768px) {
+            .card-body {
+                padding: 1.5rem !important;
+            }
+        }
+
+        /* Mobile-optimized heading size */
+        .card-title {
+            font-size: 1.1rem !important;
+        }
+
+        @media (min-width: 768px) {
+            .card-title {
+                font-size: 1.25rem !important;
+            }
+        }
+
+        /* Responsive image height */
+        .card-img-top {
+            height: 180px !important;
+        }
+
+        @media (min-width: 768px) {
+            .card-img-top {
+                height: 220px !important;
+            }
+        }
     </style>
 </head>
 
 <body>
 
 
-    <div class="container p-5">
+    <div class="container">
 
-        <header class="hero-section text-center rounded-5 py-5 mb-5 shadow-sm text-white">
-            <div class="px-3 position-relative z-1">
-                <h1 class="fw-bolder display-4 mb-2" style="letter-spacing: -0.5px;">TIME <span
+        <header class="hero-section text-center rounded-5 mb-4 mb-md-5 shadow-sm text-white">
+            <div class="px-2 px-md-3 position-relative z-1">
+                <h1 class="fw-bolder display-5 display-md-4 mb-2" style="letter-spacing: -0.5px;">TIME <span
                         class="text-danger">GLOBAL</span></h1>
-                <p class="lead fw-normal text-white-50 mb-4" id="t-subtitle">مجموعة أحجار المناظر الطبيعية والديكور</p>
-                <span class="badge text-bg-danger fs-6 px-4 py-2 rounded-pill shadow-sm" id="t-badge">
+                <p class="lead fw-normal text-white-50 mb-3 mb-md-4" id="t-subtitle" style="font-size: 0.95rem;">مجموعة أحجار المناظر الطبيعية والديكور</p>
+                <span class="badge text-bg-danger fs-6 px-3 py-2 rounded-pill shadow-sm" id="t-badge" style="font-size: 0.85rem !important;">
                     <i class="bi bi-tag-fill mx-1"></i> قائمة أسعار 2026
                 </span>
             </div>
         </header>
 
-        <div class="card border-0 shadow-sm rounded-4 mb-5">
-            <div class="card-body p-4 d-flex align-items-start">
-                <i class="bi bi-info-circle-fill text-danger fs-2 mx-3"></i>
+        <div class="card border-0 shadow-sm rounded-4 mb-4 mb-md-5">
+            <div class="card-body d-flex align-items-start">
+                <i class="bi bi-info-circle-fill text-danger fs-3 fs-md-2 mx-2 mx-md-3 flex-shrink-0"></i>
                 <div class="flex-grow-1">
-                    <h6 class="fw-bold text-dark mb-2 mt-1" id="t-info-title">ملاحظات مهمة</h6>
+                    <h6 class="fw-bold text-dark mb-2 mt-1" id="t-info-title" style="font-size: 0.95rem;">ملاحظات مهمة</h6>
                     <ul class="mb-0 text-muted small" id="t-info-list"
-                        style="padding-inline-start: 1.25rem; line-height: 1.7;">
+                        style="padding-inline-start: 1.25rem; line-height: 1.6; font-size: 0.9rem;">
                         <li> الحد الأدنى للطلب الدولي : 27 طن</li>
                         <li class="mb-1">الأسعار <strong>تسليم المصنع</strong> ولا تشمل ضريبة القيمة المضافة.</li>
                     </ul>
@@ -101,7 +168,7 @@
             </div>
         </div>
 
-        <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4" id="productGrid">
+        <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-3 g-md-4" id="productGrid">
             <!-- Rendered by JavaScript -->
         </div>
 
@@ -196,38 +263,38 @@
                     <div class="col">
                         <div class="card h-100 border-0 rounded-4 shadow-sm hover-lift">
                             <div class="position-relative">
-                                <img src="${p.img}" alt="${p.title}" class="card-img-top rounded-top-4" style="height: 220px; object-fit: cover;">
-                                <span class="badge text-bg-light px-3 py-1 text-dark rounded-3 position-absolute top-0 start-0 m-3 shadow-sm border border-light" style="font-size: 0.85rem; letter-spacing: 0.5px; backdrop-filter: blur(8px); background-color: rgba(255,255,255,0.85) !important;">
+                                <img src="${p.img}" alt="${p.title}" class="card-img-top rounded-top-4" style="object-fit: cover;">
+                                <span class="badge text-bg-light px-2 py-1 text-dark rounded-3 position-absolute top-0 start-0 m-2 shadow-sm border border-light" style="font-size: 0.75rem;">
                                     ${p.code}
                                 </span>
                             </div>
                             
-                            <div class="card-body d-flex flex-column p-4">
-                                <h4 class="card-title fw-bold text-dark mb-3 mt-1" style="font-size: 1.25rem;">${p.title}</h4>
+                            <div class="card-body d-flex flex-column">
+                                <h4 class="card-title fw-bold text-dark mb-2 mt-0">${p.title}</h4>
                                 
-                                <div class="d-flex align-items-center justify-content-center bg-light rounded-3 py-2 px-3 mb-4 border border-light-subtle shadow-sm">
-                                    <i class="bi bi-arrows-angle-expand text-muted mx-2"></i> 
-                                    <span class="small fw-semibold text-muted mx-1">${labels.sizes}:</span> 
+                                <div class="d-flex align-items-center justify-content-center bg-light rounded-3 py-2 px-2 mb-3 border border-light-subtle shadow-sm" style="flex-wrap: wrap; gap: 0.5rem; font-size: 0.85rem;">
+                                    <i class="bi bi-arrows-angle-expand text-muted"></i> 
+                                    <span class="small fw-semibold text-muted">${labels.sizes}:</span> 
                                     <span class="small fw-bold text-dark" style="direction: ltr; unicode-bidi: embed;">${p.sizes}</span>
                                 </div>
 
-                                <div class="row g-2 text-center mt-auto">
+                                <div class="row g-1 text-center mt-auto">
                                     <div class="col-4">
-                                        <div class="p-2 rounded-3 border bg-white h-100 d-flex flex-column justify-content-center">
-                                            <span class="text-uppercase text-muted d-block mb-1" style="font-size: 0.65rem; font-weight: 700;">${labels.cuval}</span>
-                                            <span class="d-block fw-bolder text-success" style="font-size: 1.1rem;">${p.prices[0]}</span>
+                                        <div class="p-1 p-md-2 rounded-3 border bg-white h-100 d-flex flex-column justify-content-center">
+                                            <span class="text-uppercase text-muted d-block mb-1" style="font-size: 0.6rem; font-weight: 700;">${labels.cuval}</span>
+                                            <span class="d-block fw-bolder text-success" style="font-size: 0.95rem;">${p.prices[0]}</span>
                                         </div>
                                     </div>
                                     <div class="col-4">
-                                        <div class="p-2 rounded-3 border bg-white h-100 d-flex flex-column justify-content-center">
-                                            <span class="text-uppercase text-muted d-block mb-1" style="font-size: 0.65rem; font-weight: 700;">${labels.paket}</span>
-                                            <span class="d-block fw-bolder text-success" style="font-size: 1.1rem;">${p.prices[1]}</span>
+                                        <div class="p-1 p-md-2 rounded-3 border bg-white h-100 d-flex flex-column justify-content-center">
+                                            <span class="text-uppercase text-muted d-block mb-1" style="font-size: 0.6rem; font-weight: 700;">${labels.paket}</span>
+                                            <span class="d-block fw-bolder text-success" style="font-size: 0.95rem;">${p.prices[1]}</span>
                                         </div>
                                     </div>
                                     <div class="col-4">
-                                        <div class="p-2 rounded-3 border bg-white h-100 d-flex flex-column justify-content-center">
-                                            <span class="text-uppercase text-muted d-block mb-1" style="font-size: 0.65rem; font-weight: 700;">${labels.kafes}</span>
-                                            <span class="d-block ${kafesColor}" style="font-size: 1.1rem;">${kafesVal}</span>
+                                        <div class="p-1 p-md-2 rounded-3 border bg-white h-100 d-flex flex-column justify-content-center">
+                                            <span class="text-uppercase text-muted d-block mb-1" style="font-size: 0.6rem; font-weight: 700;">${labels.kafes}</span>
+                                            <span class="d-block ${kafesColor}" style="font-size: 0.95rem;">${kafesVal}</span>
                                         </div>
                                     </div>
                                 </div>
