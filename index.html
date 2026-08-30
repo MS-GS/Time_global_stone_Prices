@@ -148,6 +148,15 @@
                 height: 220px !important;
             }
         }
+
+        /* Center hero title with flexbox */
+        .hero-title {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
     </style>
 </head>
 
@@ -158,7 +167,7 @@
 
         <header class="hero-section text-center mb-4 mb-md-5 shadow-sm text-white">
             <div class="px-2 px-md-3 position-relative z-1">
-                <h1 class="fw-bolder display-5 display-md-4 mb-2" style="letter-spacing: -0.5px;">TIME <span
+                <h1 class="fw-bolder display-5 display-md-4 mb-2 hero-title" style="letter-spacing: -0.5px;">TIME <span
                         class="text-danger">GLOBAL</span></h1>
                 <p class="lead fw-normal text-white-50 mb-3 mb-md-4" id="t-subtitle" style="font-size: 0.95rem;">مجموعة أحجار المناظر الطبيعية والديكور</p>
                 <span class="badge text-bg-danger fs-6 px-3 py-2 shadow-sm" id="t-badge" style="font-size: 0.85rem !important;">
