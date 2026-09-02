@@ -247,7 +247,10 @@
             <ul>
                 <li>
                     <i class="bi bi-whatsapp"></i>
-                    <a href="https://wa.me/905538559956" target="_blank" rel="noopener noreferrer">+90 553 855 99 56</a>
+                    <div>
+                        <a href="https://wa.me/905538559956" target="_blank" rel="noopener noreferrer">+90 553 855 99 56</a>
+                        <div class="small text-muted" style="margin-top:4px;">للمشترين والمهنيين المهتمين فقط. يرجى التواصل بأدب وذكر الكمية والموقع.</div>
+                    </div>
                 </li>
                 <li>
                     <i class="bi bi-instagram"></i>
@@ -283,70 +286,80 @@
                 img: "white.jpg",
                 sizes: "(1-2) (2-4) (4-6) (6-8) (10-15-20) cm",
                 prices: ["$116", "$136", "$168"],
-                title: "WHITE"
+                title: "WHITE",
+                desc: "أحجار بيضاء للديكور الخارجي، مثالية للممرات والحدائق."
             },
             {
                 code: "A-02",
                 img: "black.jpg",
                 sizes: "(1-2) (2-4) (4-6) (6-8) (10-15-20) cm",
                 prices: ["$136", "$157", "$178"],
-                title: "BLACK"
+                title: "BLACK",
+                desc: "حصى سوداء للزينة، تعزز التباين في المناظر الطبيعية والممرات."
             },
             {
                 code: "A-03",
                 img: "maroon.jpg",
                 sizes: "(1-2) (2-4) (4-6) (6-8) (10-15-20) cm",
                 prices: ["$136", "$157", "$178"],
-                title: "MAROON"
+                title: "MAROON",
+                desc: "أحجار مارون دافئة مناسبة للزخارف وأحواض النباتات."
             },
             {
                 code: "A-04",
                 img: "granite.jpg",
                 sizes: "(1-2) (2-4) (4-6) (6-8) (10-15-20) cm",
                 prices: ["$157", "$178", "$200"],
-                title: "GRANITE"
+                title: "GRANITE",
+                desc: "جرانيت قوي ومقاوم للتآكل، مناسب للأرصفة والواجهات الخارجية."
             },
             {
                 code: "A-05",
                 img: "rainbow.jpg",
                 sizes: "(1-2) (2-4) (4-6) (6-8) (10-15-20) cm",
                 prices: ["$210", "$231", "$252"],
-                title: "RAINBOW"
+                title: "RAINBOW",
+                desc: "أحجار ملونة لخلق تأثير بصري مميز في المساحات العامة والحدائق."
             },
             {
                 code: "A-06",
                 img: "green.jpg",
                 sizes: "(1-2) (2-4) (4-6) (6-8) (10-15-20) cm",
                 prices: ["$210", "$231", "$252"],
-                title: "GREEN"
+                title: "GREEN",
+                desc: "حصى خضراء للحدائق والمساحات المائية لتعزيز المظهر الطبيعي."
             },
             {
                 code: "A-07",
                 img: "basalt.jpg",
                 sizes: "(1-2) (2-4) (4-6) (6-8) (10-15-20) cm",
                 prices: ["$126", "$147", "$168"],
-                title: "BASALT"
+                title: "BASALT",
+                desc: "بازلت متين مناسب للديكور والأعمال البنائية الخارجية."
             },
             {
                 code: "A-08",
                 img: "river.jpg",
                 sizes: "(1-2) (2-4) (4-6) (6-8) (10-15-20) cm",
                 prices: ["$84", "$105", "$136"],
-                title: "RIVER PEBBLES"
+                title: "RIVER PEBBLES",
+                desc: "حصى نهرية ملساء مثالية للأحواض والديكورات الداخلية والخارجية."
             },
             {
                 code: "A-09",
                 img: "pomza-tasi.jpg",
                 sizes: "(1-2) cm",
                 prices: ["$63", "$95", "—"],
-                title: "POMZA TAŞI"
+                title: "POMZA TAŞI",
+                desc: "بومزا خفيفة الوزن تستخدم في تحسين تصريف التربة والديكور."
             },
             {
                 code: "A-10",
                 img: "broken-lava.jpg",
                 sizes: "(1-2) (2-4) (4-6) (6-8) (10-15-20) cm",
                 prices: ["$230", "_", "_"],
-                title: "broken LAVA"
+                title: "broken LAVA",
+                desc: "قطع لافا للديكور والتطبيقات الصناعية مثل التصريف والفلترة."
             }
         ];
 
@@ -373,6 +386,7 @@
                             
                             <div class="card-body d-flex flex-column">
                                 <h4 class="card-title fw-bold text-dark mb-2 mt-0">${p.title}</h4>
+                                <p class="mb-2 text-muted small" style="line-height:1.25;">${p.desc}</p>
                                 
                                 <div class="d-flex align-items-center justify-content-center bg-light py-2 px-2 mb-3 border border-light-subtle shadow-sm" style="flex-wrap: wrap; gap: 0.5rem;">
                                     <i class="bi bi-arrows-angle-expand text-muted"></i> 
