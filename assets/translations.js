@@ -19,7 +19,8 @@ window.STONE_I18N = {
     heroImageCaption: 'WHITE PEBBLES / A-01',
     swatch: 'A little contrast.<br>A lot of character.',
     visualCaption: 'NATURE, IN EVERY DETAIL.',
-    factCollection: 'distinct stone varieties',
+    factVariety: 'Natural variety',
+    factCollection: 'colours & textures',
     factPacking: '3 packing options',
     factPrices: 'clear pricing per tonne',
     factMinimum: 'minimum international order',
@@ -72,12 +73,14 @@ window.STONE_I18N = {
     priceUnit: 'USD per tonne · 1,000 kg',
     enquire: 'Ask about this stone',
     noPrice: 'On request',
-    resultCount: '{count} of {total} stones',
+    resultCount: '{count} stones shown',
     bestFor: 'A natural fit for',
     navLabel: 'Main navigation',
     categoriesLabel: 'Stone categories',
     orderInfo: 'Order information',
-    homeLabel: 'TIME GLOBAL home'
+    homeLabel: 'TIME GLOBAL home',
+    languageMenuLabel: 'Choose your language',
+    currentLanguageLabel: 'Change language'
   },
   ar: {
     skip: 'انتقل إلى مجموعة الأحجار',
@@ -99,7 +102,8 @@ window.STONE_I18N = {
     heroImageCaption: 'حصى أبيض / A-01',
     swatch: 'قليل من التباين.<br>كثير من التميز.',
     visualCaption: 'الطبيعة، في كل تفصيل.',
-    factCollection: 'أنواع مميزة من الأحجار',
+    factVariety: 'تنوع طبيعي',
+    factCollection: 'ألوان وملامس',
     factPacking: '3 خيارات للتعبئة',
     factPrices: 'أسعار واضحة للطن',
     factMinimum: 'الحد الأدنى للطلب الدولي',
@@ -152,12 +156,14 @@ window.STONE_I18N = {
     priceUnit: 'دولار أمريكي للطن · 1,000 كجم',
     enquire: 'اسألنا عن هذا الحجر',
     noPrice: 'عند الطلب',
-    resultCount: '{count} من أصل {total} أحجار',
+    resultCount: 'الأحجار المعروضة: {count}',
     bestFor: 'يناسب بطبيعته',
     navLabel: 'التنقل الرئيسي',
     categoriesLabel: 'فئات الأحجار',
     orderInfo: 'معلومات الطلب',
-    homeLabel: 'الصفحة الرئيسية لـ TIME GLOBAL'
+    homeLabel: 'الصفحة الرئيسية لـ TIME GLOBAL',
+    languageMenuLabel: 'اختر لغتك',
+    currentLanguageLabel: 'تغيير اللغة'
   },
   tr: {
     skip: 'Koleksiyona geç',
@@ -179,7 +185,8 @@ window.STONE_I18N = {
     heroImageCaption: 'BEYAZ ÇAKIL / A-01',
     swatch: 'Biraz kontrast.<br>Bolca karakter.',
     visualCaption: 'HER DETAYDA DOĞA.',
-    factCollection: 'farklı taş çeşidi',
+    factVariety: 'Doğal çeşitlilik',
+    factCollection: 'renkler ve dokular',
     factPacking: '3 ambalaj seçeneği',
     factPrices: 'ton başına net fiyatlar',
     factMinimum: 'asgari uluslararası sipariş',
@@ -232,11 +239,13 @@ window.STONE_I18N = {
     priceUnit: 'Ton başına USD · 1.000 kg',
     enquire: 'Bu taş hakkında bize sorun',
     noPrice: 'Teklif isteyin',
-    resultCount: '{total} taştan {count} tanesi',
+    resultCount: '{count} taş gösteriliyor',
     bestFor: 'Doğal uyum sağladığı alanlar',
     navLabel: 'Ana gezinme',
     categoriesLabel: 'Taş kategorileri',
     orderInfo: 'Sipariş bilgileri',
-    homeLabel: 'TIME GLOBAL ana sayfa'
+    homeLabel: 'TIME GLOBAL ana sayfa',
+    languageMenuLabel: 'Dilinizi seçin',
+    currentLanguageLabel: 'Dili değiştir'
   }
 };

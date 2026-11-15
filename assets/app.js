@@ -7,6 +7,10 @@
   const storageKey = 'time-global-language';
   const $ = (id) => document.getElementById(id);
   const state = { language: 'en', category: 'all', search: '', packing: 0, sort: 'featured' };
+  const languageNames = { en: 'English', ar: 'العربية', tr: 'Türkçe' };
+  const languageToggle = $('languageToggle');
+  const languageMenu = $('languageMenu');
+  const languageOptions = Array.from(document.querySelectorAll('[data-language-choice]'));
   const t = (key) => translations[state.language][key] ?? translations.en[key] ?? key;
   const escapeHTML = (value) => String(value).replace(/[&<>"']/g, (char) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[char]));
   const price = (value) => `$${new Intl.NumberFormat('en-US', { maximumFractionDigits: 0 }).format(value)}`;
@@ -54,7 +58,7 @@
         <a href="#quote" class="card-enquire"><span>${escapeHTML(t('enquire'))}</span><span aria-hidden="true">↗</span></a></div>
       </article></div>`;
     }).join('');
-    $('resultCount').textContent = t('resultCount').replace('{count}', list.length).replace('{total}', products.length);
+    $('resultCount').textContent = t('resultCount').replace('{count}', list.length);
     $('emptyState').hidden = list.length !== 0;
   }
 
@@ -67,8 +71,11 @@
     if ($('bs-css').getAttribute('href') !== bootstrapPath) $('bs-css').href = bootstrapPath;
     document.querySelectorAll('[data-i18n]').forEach((element) => setText(element, t(element.dataset.i18n)));
     document.querySelectorAll('[data-i18n-placeholder]').forEach((element) => { element.placeholder = t(element.dataset.i18nPlaceholder); });
-    $('languageSelect').value = language;
-    $('languageSelect').setAttribute('aria-label', t('language'));
+    $('currentLanguage').textContent = languageNames[language];
+    $('currentLanguage').lang = language;
+    languageToggle.setAttribute('aria-label', `${t('currentLanguageLabel')}: ${languageNames[language]}`);
+    languageMenu.setAttribute('aria-label', t('languageMenuLabel'));
+    languageOptions.forEach((option) => option.setAttribute('aria-checked', String(option.dataset.languageChoice === language)));
     document.querySelector('.main-nav').setAttribute('aria-label', t('navLabel'));
     document.querySelector('.filter-list').setAttribute('aria-label', t('categoriesLabel'));
     document.querySelector('.facts-strip').setAttribute('aria-label', t('orderInfo'));
@@ -99,7 +106,41 @@
     renderGrid();
   }
 
-  $('languageSelect').addEventListener('change', (event) => setLanguage(event.target.value, true));
+  function closeLanguageMenu(restoreFocus = false) {
+    languageMenu.hidden = true;
+    languageToggle.setAttribute('aria-expanded', 'false');
+    if (restoreFocus) languageToggle.focus();
+  }
+
+  function openLanguageMenu() {
+    languageMenu.hidden = false;
+    languageToggle.setAttribute('aria-expanded', 'true');
+    languageOptions.find((option) => option.dataset.languageChoice === state.language).focus();
+  }
+
+  languageToggle.addEventListener('click', () => languageMenu.hidden ? openLanguageMenu() : closeLanguageMenu());
+  languageToggle.addEventListener('keydown', (event) => {
+    if (event.key === 'ArrowDown' || event.key === 'ArrowUp') {
+      event.preventDefault();
+      openLanguageMenu();
+    }
+  });
+  languageOptions.forEach((option) => option.addEventListener('click', () => {
+    setLanguage(option.dataset.languageChoice, true);
+    closeLanguageMenu(true);
+  }));
+  languageMenu.addEventListener('keydown', (event) => {
+    const index = languageOptions.indexOf(document.activeElement);
+    if (event.key === 'Escape') { event.preventDefault(); closeLanguageMenu(true); }
+    else if (event.key === 'Tab') closeLanguageMenu(true);
+    else if (['ArrowDown', 'ArrowUp', 'Home', 'End'].includes(event.key)) {
+      event.preventDefault();
+      const next = event.key === 'Home' ? 0 : event.key === 'End' ? languageOptions.length - 1 : (index + (event.key === 'ArrowDown' ? 1 : -1) + languageOptions.length) % languageOptions.length;
+      languageOptions[next].focus();
+    }
+  });
+  document.addEventListener('click', (event) => { if (!languageToggle.parentElement.contains(event.target)) closeLanguageMenu(); });
+  document.addEventListener('focusin', (event) => { if (!languageToggle.parentElement.contains(event.target)) closeLanguageMenu(); });
   document.querySelectorAll('[data-language]').forEach((button) => button.addEventListener('click', () => {
     setLanguage(button.dataset.language, true);
     $('languageDialog').close();
@@ -118,6 +159,12 @@
   $('packingSelect').addEventListener('change', (event) => { state.packing = Number(event.target.value); renderGrid(); });
   $('sortSelect').addEventListener('change', (event) => { state.sort = event.target.value; renderGrid(); });
   $('resetSearch').addEventListener('click', resetCollection);
+  // Anchor links land below the sticky header, including its mobile navigation row.
+  const header = document.querySelector('.site-header');
+  const updateHeaderOffset = () => document.documentElement.style.setProperty('--header-height', `${Math.ceil(header.getBoundingClientRect().height)}px`);
+  if ('ResizeObserver' in window) new ResizeObserver(updateHeaderOffset).observe(header);
+  window.addEventListener('resize', updateHeaderOffset);
+  updateHeaderOffset();
   // Print every product even if the on-screen catalogue has been filtered.
   window.addEventListener('beforeprint', () => renderGrid(true));
   window.addEventListener('afterprint', () => renderGrid());

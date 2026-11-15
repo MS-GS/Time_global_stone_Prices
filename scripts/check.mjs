@@ -27,7 +27,7 @@ async function check(label, operation) {
 
 const html = await readFile(path.join(root, 'index.html'), 'utf8');
 const scripts = [...html.matchAll(/<script\b[^>]*\bsrc=["']([^"']+)["'][^>]*>/gi)]
-  .map(match => match[1]).filter(isLocal);
+  .map(match => match[1]).filter(isLocal).map(reference => reference.split(/[?#]/, 1)[0]);
 const context = vm.createContext({ window: {} });
 const scriptSources = new Map();
 
@@ -118,7 +118,7 @@ await check('Every catalog photograph exists', async () => {
 
 await check('Local CSS assets exist', async () => {
   const styles = [...html.matchAll(/<link\b[^>]*\bhref=["']([^"']+\.css(?:\?[^"']*)?)["'][^>]*>/gi)]
-    .map(match => match[1]).filter(isLocal);
+    .map(match => match[1]).filter(isLocal).map(reference => reference.split(/[?#]/, 1)[0]);
   for (const filename of styles) {
     const css = await readFile(path.join(root, filename), 'utf8');
     const urls = [...css.matchAll(/url\(\s*["']?([^"')]+)["']?\s*\)/g)].map(match => match[1].trim()).filter(isLocal);
