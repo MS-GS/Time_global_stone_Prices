@@ -258,12 +258,11 @@ html[dir='rtl'] .quote-copy h2 { line-height: 1.6; font-size: 35px; }
 
 /* Keep direct contact within reach without covering the end of the catalogue. */
 body { padding-block-end: calc(96px + env(safe-area-inset-bottom, 0px)); }
-.floating-whatsapp { position: fixed; inset-inline-end: 24px; inset-block-end: calc(24px + env(safe-area-inset-bottom, 0px)); z-index: 30; display: inline-flex; align-items: center; gap: 12px; min-height: 64px; padding: 11px 19px; border: 2px solid #ffffffd9; border-radius: 999px; background: #167c4a; color: #fff; box-shadow: 0 8px 28px #18372d35; transition: background .2s, transform .2s; }
+.floating-whatsapp { position: fixed; inset-inline-end: 24px; inset-block-end: calc(24px + env(safe-area-inset-bottom, 0px)); z-index: 30; display: inline-flex; align-items: center; justify-content: center; width: 56px; min-height: 56px; padding: 0; border: 2px solid #ffffffd9; border-radius: 999px; background: #167c4a; color: #fff; box-shadow: 0 8px 28px #18372d35; transition: background .2s, transform .2s; }
 .floating-whatsapp:hover { background: #11653c; color: #fff; transform: translateY(-2px); }
 .floating-whatsapp:focus-visible { outline: 3px solid var(--forest); outline-offset: 4px; }
 .floating-whatsapp svg { width: 30px; height: 30px; fill: none; stroke: currentColor; stroke-width: 1.5; }
-.floating-whatsapp-copy { display: flex; flex-direction: column; gap: 2px; font-size: 13px; font-weight: 600; line-height: 1.5; }
-.floating-whatsapp-copy small { font-size: 11px; font-weight: 400; letter-spacing: .03em; }
+.floating-whatsapp-copy { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; }
 
 @media (min-width: 576px) { .col-sm-6 { width: 50%; } }
 @media (min-width: 768px) { .col-md-4 { width: 33.33333333%; } }
@@ -344,8 +343,7 @@ body { padding-block-end: calc(96px + env(safe-area-inset-bottom, 0px)); }
 }
 
 @media (max-width: 620px) {
-  .floating-whatsapp { inset-inline-end: max(16px, env(safe-area-inset-left, 0px), env(safe-area-inset-right, 0px)); inset-block-end: calc(16px + env(safe-area-inset-bottom, 0px)); justify-content: center; width: 56px; min-height: 56px; padding: 0; }
-  .floating-whatsapp-copy { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; }
+  .floating-whatsapp { inset-inline-end: max(16px, env(safe-area-inset-left, 0px), env(safe-area-inset-right, 0px)); inset-block-end: calc(16px + env(safe-area-inset-bottom, 0px)); }
   .site-container { width: calc(100% - 40px); }
   .announcement { height: 31px; font-size: 8px; letter-spacing: .02em; }
   .announcement-end { font-size: 7px; letter-spacing: .05em; }
