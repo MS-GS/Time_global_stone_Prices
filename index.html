@@ -1,437 +1,63 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-
+<!doctype html>
+<html lang="en" dir="ltr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TIME GLOBAL - Premium Stones</title>
-
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Kufi+Arabic:wght@400;600;700&display=swap"
-        rel="stylesheet">
-
-    <!-- Bootstrap 5 CSS (Default RTL for Arabic) -->
-    <link id="bs-css" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.rtl.min.css"
-        rel="stylesheet">
-
-    <!-- Bootstrap Icons -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-
-    <style>
-        /* Remove all rounded edges globally */
-        * {
-            border-radius: 0 !important;
-        }
-
-        /* Also reset Bootstrap variables for border radius where used */
-        :root {
-            --bs-border-radius: 0 !important;
-            --bs-border-radius-lg: 0 !important;
-            --bs-border-radius-sm: 0 !important;
-        }
-
-        body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            -webkit-font-smoothing: antialiased;
-            background-color: #f8fafc;
-        }
-
-        /* Arabic Font Override */
-        html[dir="rtl"] body {
-            font-family: 'Noto Kufi Arabic', sans-serif;
-        }
-
-        /* Responsive container padding */
-        .container {
-            padding: 1rem !important;
-        }
-
-        @media (min-width: 576px) {
-            .container {
-                padding: 2rem !important;
-            }
-        }
-
-        @media (min-width: 768px) {
-            .container {
-                padding: 3rem !important;
-            }
-        }
-
-        @media (min-width: 992px) {
-            .container {
-                padding: 4rem !important;
-            }
-        }
-
-        /* Navbar Glassmorphism */
-        .lang-navbar {
-            background-color: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-        }
-
-        /* Clean Hover Animation for Cards */
-        .hover-lift {
-            transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
-        }
-
-        .hover-lift:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 1.25rem 2.5rem rgba(0, 0, 0, 0.08) !important;
-        }
-
-        /* Hero Image Overlay styling */
-        .hero-section {
-            background: linear-gradient(145deg, #0f172a 0%, #1e293b 100%);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero-section::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('https://images.unsplash.com/photo-1604928141064-207cea6f5722?auto=format&fit=crop&w=1920&q=80') center/cover;
-            opacity: 0.15;
-            mix-blend-mode: overlay;
-            pointer-events: none;
-        }
-
-        /* Mobile-optimized hero padding */
-        .hero-section {
-            padding: 2rem 0.75rem !important;
-        }
-
-        @media (min-width: 768px) {
-            .hero-section {
-                padding: 3rem 0.75rem !important;
-            }
-        }
-
-        /* Contact list below title */
-        .contact-list {
-            background-color: rgba(255, 255, 255, 0.95);
-            padding: 1.5rem;
-            margin-bottom: 1.5rem;
-            border-left: 4px solid #dc3545;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-        }
-
-        .contact-list ul {
-            margin: 0;
-            padding-left: 1.5rem;
-            list-style: none;
-            direction: ltr;
-        }
-
-        .contact-list li {
-            padding: 0.5rem 0;
-            font-size: 0.95rem;
-            font-weight: 500;
-            color: #0f172a;
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-        }
-
-        .contact-list li i {
-            color: #dc3545;
-            font-size: 1.1rem;
-            min-width: 24px;
-        }
-
-        .contact-list a {
-            color: #0f172a;
-            text-decoration: none;
-            font-weight: 600;
-            transition: color 0.2s ease;
-        }
-
-        .contact-list a:hover {
-            color: #dc3545;
-            text-decoration: underline;
-        }
-
-        /* Mobile-optimized card body padding */
-        .card-body {
-            padding: 1.25rem !important;
-        }
-
-        @media (min-width: 768px) {
-            .card-body {
-                padding: 1.5rem !important;
-            }
-        }
-
-        /* Mobile-optimized heading size */
-        .card-title {
-            font-size: 1.1rem !important;
-            text-align: center;
-        }
-
-        @media (min-width: 768px) {
-            .card-title {
-                font-size: 1.25rem !important;
-            }
-        }
-
-        /* Responsive image height */
-        .card-img-top {
-            height: 180px !important;
-            object-fit: cover;
-        }
-
-        @media (min-width: 768px) {
-            .card-img-top {
-                height: 220px !important;
-            }
-        }
-
-        /* Center hero title with flexbox */
-        .hero-title {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-        }
-
-        /* Print styles for PDF */
-        @media print {
-            .contact-list {
-                background: white !important;
-                border-left: 4px solid #0f172a !important;
-                break-inside: avoid;
-            }
-
-            .contact-list li i {
-                color: #0f172a !important;
-            }
-
-            .contact-list a {
-                color: #0f172a !important;
-                text-decoration: underline !important;
-            }
-
-            .hero-section {
-                page-break-after: avoid;
-            }
-        }
-    </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#233f35">
+  <meta name="description" content="Explore TIME GLOBAL's decorative pebbles, natural stone and volcanic aggregates. Browse wholesale prices per tonne in English, Arabic or Turkish. Call us to arrange your order.">
+  <title>TIME GLOBAL — Natural Stone & Wholesale Prices</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=Noto+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link id="bs-css" href="assets/vendor/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/styles.css" rel="stylesheet">
+  <script defer src="assets/catalog.js"></script>
+  <script defer src="assets/translations.js"></script>
+  <script defer src="assets/app.js"></script>
 </head>
-
 <body>
-
-    <div class="container">
-
-        <header class="hero-section text-center mb-2 mb-md-3 shadow-sm text-white">
-            <div class="px-2 px-md-3 position-relative z-1">
-                <h1 class="fw-bolder display-5 display-md-4 mb-2 hero-title" style="letter-spacing: -0.5px;">TIME <span
-                        class="text-danger">GLOBAL</span></h1>
-                <p class="lead fw-normal text-white-50 mb-3 mb-md-4" id="t-subtitle" style="font-size: 0.95rem;">مجموعة أحجار المناظر الطبيعية والديكور</p>
-                <span class="badge text-bg-danger fs-6 px-3 py-2 shadow-sm" id="t-badge" style="font-size: 0.85rem !important;">
-                    <i class="bi bi-tag-fill mx-1"></i> قائمة أسعار 2026
-                </span>
-            </div>
-        </header>
-
-        <!-- Contact List Below Title -->
-        <div class="contact-list">
-            <ul>
-                <li>
-                    <i class="bi bi-whatsapp"></i>
-                    <div>
-                        <a href="https://wa.me/905538559956" target="_blank" rel="noopener noreferrer">+90 553 855 99 56</a>
-                        <div class="small text-muted" style="margin-top:4px;">للمشترين والمهنيين المهتمين , يرجى التواصل وذكر الكمية والموقع.</div>
-                    </div>
-                </li>
-                <li>
-                    <i class="bi bi-instagram"></i>
-                    <a href="https://www.instagram.com/time_global_stone/" target="_blank" rel="noopener noreferrer">@time_global_stone</a>
-                </li>
-            </ul>
+  <a class="skip-link" href="#collection" data-i18n="skip">Skip to collection</a>
+  <div class="announcement"><div class="site-container"><span class="tiny-dot"></span><span data-i18n="announcement">Natural character. Endless possibilities.</span><span class="announcement-end" data-i18n="announcementEnd">2026 STONE COLLECTION</span></div></div>
+  <header class="site-header"><div class="site-container header-inner">
+    <a href="#" class="brand" aria-label="TIME GLOBAL home"><svg class="brand-mark" viewBox="0 0 42 45" aria-hidden="true"><path d="M3 13 21 3l18 10v21L21 44 3 34Z" fill="none" stroke="currentColor" stroke-width="2"/><path d="m3 13 18 10 18-10M21 23v21M12 18l18-10M12 18v11l9 5 9-5V18" fill="none" stroke="currentColor" stroke-width="2"/></svg><span>TIME GLOBAL<small data-i18n="brandSub">NATURAL STONE</small></span></a>
+    <nav class="main-nav" aria-label="Main navigation"><a href="#collection" data-i18n="navCollection">The collection</a><a href="#stone-guide" data-i18n="navGuide">Stone guide</a><a href="#quote" data-i18n="navContact">Let’s talk</a></nav>
+    <div class="header-actions"><label class="language-control"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c5 5 5 13 0 18-5-5-5-13 0-18Z"/></svg><span class="visually-hidden" data-i18n="language">Language</span><select id="languageSelect" aria-label="Language"><option value="en">EN</option><option value="ar">العربية</option><option value="tr">TR</option></select></label><a href="#quote" class="button button-dark header-quote"><span data-i18n="getQuote">Contact us</span><span aria-hidden="true">↗</span></a></div>
+  </div></header>
+  <main>
+    <section class="hero site-container" aria-labelledby="heroTitle">
+      <div class="hero-copy"><p class="eyebrow"><span class="small-rule"></span><span data-i18n="heroEyebrow">GROUNDED IN NATURE</span></p><h1 id="heroTitle"><span data-i18n="heroTitle">Small details.</span><em data-i18n="heroAccent">Beautiful spaces.</em></h1><p class="hero-description" data-i18n="heroDesc">Discover the textures, tones and quiet character of natural stone. Thoughtfully chosen for gardens, landscapes and spaces that feel a little more extraordinary.</p><div class="hero-buttons"><a href="#collection" class="button button-dark"><span data-i18n="explore">Explore the collection</span><span aria-hidden="true">↗</span></a><a href="#stone-guide" class="text-link"><span data-i18n="findStone">Find your stone</span><span aria-hidden="true">→</span></a></div><div class="hero-note"><span class="note-symbol" aria-hidden="true">✳</span><span data-i18n="heroNote">From a finishing touch to a full landscape.</span></div></div>
+      <div class="hero-visual"><div class="hero-image-wrap"><img src="white.jpg" alt="Smooth white decorative pebbles" id="heroImage" fetchpriority="high" width="500" height="375"><span class="image-caption"><span class="tiny-dot"></span><span data-i18n="heroImageCaption">WHITE PEBBLES / A-01</span></span></div><div class="hero-swatch"><img src="black.jpg" alt="Black decorative pebbles" width="240" height="240"><span data-i18n="swatch">A little contrast.<br>A lot of character.</span><span class="swatch-arrow" aria-hidden="true">↗</span></div><span class="image-index" aria-hidden="true">01 — 10</span><span class="vertical-caption" data-i18n="visualCaption">NATURE, IN EVERY DETAIL.</span></div>
+    </section>
+    <section class="facts-strip" aria-label="Order information"><div class="site-container facts-inner"><div><strong>10</strong><span data-i18n="factCollection">distinct stone varieties</span></div><div><span class="fact-icon" aria-hidden="true">◈</span><span data-i18n="factPacking">3 packing options</span></div><div><strong dir="ltr">USD / t</strong><span data-i18n="factPrices">clear pricing per tonne</span></div><div><strong dir="ltr">27 t</strong><span data-i18n="factMinimum">minimum international order</span></div></div></section>
+    <section class="collection-section site-container" id="collection" aria-labelledby="collectionTitle">
+      <div class="section-heading"><div><p class="eyebrow" data-i18n="collectionEyebrow">THE MATERIAL PALETTE</p><h2 id="collectionTitle" data-i18n="collectionTitle">Find your natural fit.</h2></div><p class="section-intro" data-i18n="collectionIntro">From crisp whites to volcanic textures. Explore every stone, compare packing options, and make it yours.</p></div>
+      <div class="catalog-toolbar"><div class="filter-list" role="group" aria-label="Stone categories"><button class="filter-button active" data-filter="all" aria-pressed="true"><span data-i18n="all">All stones</span><span class="filter-count">10</span></button><button class="filter-button" data-filter="decorative" aria-pressed="false" data-i18n="decorative">Decorative pebbles</button><button class="filter-button" data-filter="natural" aria-pressed="false" data-i18n="natural">Natural stone</button><button class="filter-button" data-filter="volcanic" aria-pressed="false" data-i18n="volcanic">Volcanic stone</button></div><label class="search-control"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg><span class="visually-hidden" data-i18n="searchLabel">Search stones</span><input type="search" id="searchInput" placeholder="Search stones…" data-i18n-placeholder="searchPlaceholder"></label></div>
+      <div class="catalog-meta"><p id="resultCount" role="status" aria-live="polite"></p><div class="catalog-options"><label><span data-i18n="highlight">Packing:</span><select id="packingSelect"><option value="0" data-i18n="bigBag">Big bag</option><option value="1" data-i18n="packs">18 kg packs</option><option value="2" data-i18n="cage">Cage</option></select></label><label><span class="visually-hidden" data-i18n="sortLabel">Sort stones</span><select id="sortSelect"><option value="featured" data-i18n="sortFeatured">Collection order</option><option value="low" data-i18n="sortLow">Price: low to high</option><option value="high" data-i18n="sortHigh">Price: high to low</option></select></label></div></div>
+      <div class="row g-4" id="productGrid"></div>
+      <div class="empty-state" id="emptyState" hidden><span aria-hidden="true">⌕</span><h3 data-i18n="noResults">No stones found.</h3><p data-i18n="trySearch">Try another name, colour or product code.</p><button class="text-link" id="resetSearch" data-i18n="reset">Show all stones</button></div>
+      <aside class="price-notice"><span class="info-icon" aria-hidden="true">i</span><div><strong data-i18n="priceNoticeTitle">A clear price. A considered quote.</strong><p data-i18n="priceNotice">All listed prices are USD per metric tonne (1,000 kg), including the 18 kg packed option. Ex-works; VAT, freight, customs and destination charges are excluded. Final price and availability are confirmed by quotation.</p></div><button id="printCatalog" class="print-button"><span aria-hidden="true">↓</span><span data-i18n="print">Print price list</span></button></aside>
+    </section>
+    <section class="guide-section" id="stone-guide" aria-labelledby="guideTitle"><div class="site-container"><div class="section-heading"><div><p class="eyebrow" data-i18n="guideEyebrow">A LITTLE MATERIAL KNOW-HOW</p><h2 id="guideTitle" data-i18n="guideTitle">The right stone, in the right place.</h2></div><p class="section-intro" data-i18n="guideIntro">Think about the feeling you want to create, then the practical details. Here’s a good place to start.</p></div><div class="row g-4 guide-grid"><article class="col-md-4"><span class="guide-number">01 /</span><h3 data-i18n="guideOneTitle">Set the mood</h3><p data-i18n="guideOneDesc">White stones brighten borders. Dark tones add definition. Mixed river pebbles bring a softer, more organic rhythm to dry stream beds and planted spaces.</p></article><article class="col-md-4"><span class="guide-number">02 /</span><h3 data-i18n="guideTwoTitle">Match the application</h3><p data-i18n="guideTwoDesc">Use decorative pebbles for surface cover and accents. Pumice can improve air space in growing mixes; lava brings a porous texture to landscape beds. Grade and installation matter.</p></article><article class="col-md-4"><span class="guide-number">03 /</span><h3 data-i18n="guideThreeTitle">See it in person</h3><p data-i18n="guideThreeDesc">Natural colour, size and texture vary, especially when wet. Ask about a representative sample. Confirm suitability before use in water features, aquariums or specialist construction.</p></article></div><details class="research-details"><summary><span data-i18n="sourcesTitle">Material notes & research sources</span><span aria-hidden="true">+</span></summary><p data-i18n="sourcesDesc">General application guidance is informed by the sources below. Colour names are commercial descriptions, not verified mineral classifications. Suitability depends on the supplied stone, grading and installation.</p><ul><li><a href="https://www.rhs.org.uk/plants/for-places/gravel-gardens" target="_blank" rel="noopener noreferrer">Royal Horticultural Society — Gravel gardens ↗</a></li><li><a href="https://extension.umd.edu/resource/mulching-trees-and-shrubs/" target="_blank" rel="noopener noreferrer">University of Maryland Extension — Mulching trees and shrubs ↗</a></li><li><a href="https://ask.extension.org/kb/faq.php?id=779486" target="_blank" rel="noopener noreferrer">Ask Extension — Pumice in growing media ↗</a></li></ul></details></div></section>
+    <section class="quote-section site-container" id="quote" aria-labelledby="quoteTitle">
+      <div class="quote-panel">
+        <div class="quote-copy">
+          <p class="eyebrow" data-i18n="quoteEyebrow">FOUND SOMETHING YOU LIKE?</p>
+          <h2 id="quoteTitle" data-i18n="quoteTitle">Your stone.<br>One conversation away.</h2>
+          <p data-i18n="quoteDesc">Call us to discuss your choice, quantity and delivery destination. We’ll confirm availability, pricing and arrange your order directly.</p>
+          <a class="phone-link" href="tel:+905538559956" dir="ltr">+90 553 855 99 56 <span aria-hidden="true">↗</span></a>
+          <a class="instagram-link" href="https://www.instagram.com/time_global_stone/" target="_blank" rel="noopener noreferrer">Instagram / @time_global_stone ↗</a>
         </div>
-
-        <div class="card border-0 shadow-sm mb-4 mb-md-5">
-            <div class="card-body d-flex align-items-start">
-                <i class="bi bi-info-circle-fill text-danger fs-3 fs-md-2 mx-2 mx-md-3 flex-shrink-0"></i>
-                <div class="flex-grow-1">
-                    <h6 class="fw-bold text-dark mb-2 mt-1" id="t-info-title" style="font-size: 0.95rem;">ملاحظات مهمة</h6>
-                    <ul class="mb-0 text-muted small" id="t-info-list"
-                        style="padding-inline-start: 1.25rem; line-height: 1.6; font-size: 0.9rem;">
-                        <li> الحد الأدنى للطلب الدولي : 27 طن</li>
-                        <li class="mb-1">الأسعار <strong>تسليم المصنع</strong> ولا تشمل ضريبة القيمة المضافة.</li>
-                        <li>السعر قد يختلف حسب الوجهة وطريقة الشحن</li>
-                    </ul>
-                </div>
-            </div>
+        <div class="contact-actions">
+          <a href="tel:+905538559956" class="button button-lime"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3H4c-1 0-1 1-1 2 0 8 8 16 16 16 1 0 2 0 2-1v-3l-5-2-2 2c-3-1-6-4-7-7l2-2Z"/></svg><span data-i18n="callUs">Call us</span><span aria-hidden="true">↗</span></a>
+          <a href="https://wa.me/905465305791" target="_blank" rel="noopener noreferrer" class="button button-outline"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 11.6a8.6 8.6 0 0 1-12.8 7.5L3 20.5l1.4-4.6A8.6 8.6 0 1 1 20.5 11.6Z"/><path d="M8 7c-1 3 2 7 6 8l2-2-3-1-1 1-2-2 1-1-1-3Z"/></svg><span class="contact-button-label"><span data-i18n="whatsappQuote">Chat on WhatsApp</span><small dir="ltr">+90 546 530 57 91</small></span><span aria-hidden="true">↗</span></a>
+          <p class="contact-note" data-i18n="contactNote">International orders start at 27 tonnes. Final pricing, packing and shipping are confirmed with us directly.</p>
         </div>
-
-        <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-3 g-md-4" id="productGrid">
-            <!-- Rendered by JavaScript -->
-        </div>
-
-    </div>
-
-    <script>
-        const products = [
-            {
-                code: "A-01",
-                img: "white.jpg",
-                sizes: "(1-2) (2-4) (4-6) (6-8) (10-15-20) cm",
-                prices: ["$116", "$136", "$168"],
-                title: "WHITE",
-                desc: "أحجار بيضاء للديكور الخارجي، مثالية للممرات والحدائق."
-            },
-            {
-                code: "A-02",
-                img: "black.jpg",
-                sizes: "(1-2) (2-4) (4-6) (6-8) (10-15-20) cm",
-                prices: ["$136", "$157", "$178"],
-                title: "BLACK",
-                desc: "حصى سوداء للزينة، تعزز التباين في المناظر الطبيعية والممرات."
-            },
-            {
-                code: "A-03",
-                img: "maroon.jpg",
-                sizes: "(1-2) (2-4) (4-6) (6-8) (10-15-20) cm",
-                prices: ["$136", "$157", "$178"],
-                title: "MAROON",
-                desc: "أحجار مارون دافئة مناسبة للزخارف وأحواض النباتات."
-            },
-            {
-                code: "A-04",
-                img: "granite.jpg",
-                sizes: "(1-2) (2-4) (4-6) (6-8) (10-15-20) cm",
-                prices: ["$157", "$178", "$200"],
-                title: "GRANITE",
-                desc: "جرانيت قوي ومقاوم للتآكل، مناسب للأرصفة والواجهات الخارجية."
-            },
-            {
-                code: "A-05",
-                img: "rainbow.jpg",
-                sizes: "(1-2) (2-4) (4-6) (6-8) (10-15-20) cm",
-                prices: ["$210", "$231", "$252"],
-                title: "RAINBOW",
-                desc: "أحجار ملونة لخلق تأثير بصري مميز في المساحات العامة والحدائق."
-            },
-            {
-                code: "A-06",
-                img: "green.jpg",
-                sizes: "(1-2) (2-4) (4-6) (6-8) (10-15-20) cm",
-                prices: ["$210", "$231", "$252"],
-                title: "GREEN",
-                desc: "حصى خضراء للحدائق والمساحات المائية لتعزيز المظهر الطبيعي."
-            },
-            {
-                code: "A-07",
-                img: "basalt.jpg",
-                sizes: "(1-2) (2-4) (4-6) (6-8) (10-15-20) cm",
-                prices: ["$126", "$147", "$168"],
-                title: "BASALT",
-                desc: "بازلت متين مناسب للديكور والأعمال البنائية الخارجية."
-            },
-            {
-                code: "A-08",
-                img: "river.jpg",
-                sizes: "(1-2) (2-4) (4-6) (6-8) (10-15-20) cm",
-                prices: ["$84", "$105", "$136"],
-                title: "RIVER PEBBLES",
-                desc: "حصى نهرية ملساء مثالية للأحواض والديكورات الداخلية والخارجية."
-            },
-            {
-                code: "A-09",
-                img: "pomza-tasi.jpg",
-                sizes: "(1-2) cm",
-                prices: ["$63", "$95", "—"],
-                title: "POMZA TAŞI",
-                desc: "بومزا خفيفة الوزن تستخدم في تحسين تصريف التربة والديكور."
-            },
-            {
-                code: "A-10",
-                img: "broken-lava.jpg",
-                sizes: "(1-2) (2-4) (4-6) (6-8) (10-15-20) cm",
-                prices: ["$230", "_", "_"],
-                title: "broken LAVA",
-                desc: "قطع لافا للديكور والتطبيقات الصناعية مثل التصريف والفلترة."
-            }
-        ];
-
-        const labels = { sizes: "المقاسات", cuval: "كيس (طن)", paket: "عبوة 18 كجم", kafes: "قفص (طن)" };
-
-        function renderGrid() {
-            const grid = document.getElementById('productGrid');
-            grid.innerHTML = '';
-
-            products.forEach(p => {
-                const isKafesEmpty = p.prices[2] === "—";
-                const kafesColor = isKafesEmpty ? "text-muted opacity-50 fw-normal" : "text-success fw-bolder";
-                const kafesVal = isKafesEmpty ? "—" : p.prices[2];
-
-                const cardHTML = `
-                    <div class="col">
-                        <div class="card h-100 border-0 shadow-sm hover-lift">
-                            <div class="position-relative">
-                                <img src="${p.img}" alt="${p.title}" class="card-img-top" style="object-fit: cover;">
-                                <span class="badge text-bg-light px-2 py-1 text-dark position-absolute top-0 start-0 m-2 shadow-sm border border-light" style="font-size: 0.75rem;">
-                                    ${p.code}
-                                </span>
-                            </div>
-                            
-                            <div class="card-body d-flex flex-column">
-                                <h4 class="card-title fw-bold text-dark mb-2 mt-0">${p.title}</h4>
-                                <p class="mb-2 text-muted small" style="line-height:1.25;">${p.desc}</p>
-                                
-                                <div class="d-flex align-items-center justify-content-center bg-light py-2 px-2 mb-3 border border-light-subtle shadow-sm" style="flex-wrap: wrap; gap: 0.5rem;">
-                                    <i class="bi bi-arrows-angle-expand text-muted"></i> 
-                                    <span class="small fw-semibold text-muted">${labels.sizes}:</span> 
-                                    <span class="small fw-bold text-dark" style="direction: ltr; unicode-bidi: embed;">${p.sizes}</span>
-                                </div>
-
-                                <div class="row g-1 text-center mt-auto">
-                                    <div class="col-4">
-                                        <div class="p-1 p-md-2 border bg-white h-100 d-flex flex-column justify-content-center">
-                                            <span class="text-uppercase text-muted d-block mb-1" style="font-size: 0.6rem; font-weight: 700;">${labels.cuval}</span>
-                                            <span class="d-block fw-bolder text-success" style="font-size: 0.95rem;">${p.prices[0]}</span>
-                                        </div>
-                                    </div>
-                                    <div class="col-4">
-                                        <div class="p-1 p-md-2 border bg-white h-100 d-flex flex-column justify-content-center">
-                                            <span class="text-uppercase text-muted d-block mb-1" style="font-size: 0.6rem; font-weight: 700;">${labels.paket}</span>
-                                            <span class="d-block fw-bolder text-success" style="font-size: 0.95rem;">${p.prices[1]}</span>
-                                        </div>
-                                    </div>
-                                    <div class="col-4">
-                                        <div class="p-1 p-md-2 border bg-white h-100 d-flex flex-column justify-content-center">
-                                            <span class="text-uppercase text-muted d-block mb-1" style="font-size: 0.6rem; font-weight: 700;">${labels.kafes}</span>
-                                            <span class="d-block ${kafesColor}" style="font-size: 0.95rem;">${kafesVal}</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                `;
-                grid.insertAdjacentHTML('beforeend', cardHTML);
-            });
-        }
-
-        document.documentElement.setAttribute('dir', 'rtl');
-        document.documentElement.setAttribute('lang', 'ar');
-        const bsLink = document.getElementById('bs-css');
-        bsLink.href = "https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.rtl.min.css";
-
-        document.addEventListener('DOMContentLoaded', () => {
-            renderGrid();
-        });
-    </script>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer site-container"><a class="footer-brand" href="#">TIME GLOBAL<span data-i18n="footerSub">Stone with character.</span></a><p data-i18n="footerNote">Natural variations. Thoughtful choices. Beautiful results.</p><span>© 2026 TIME GLOBAL</span></footer>
+  <dialog id="languageDialog" aria-labelledby="languageTitle" aria-describedby="languageDescription"><div class="language-dialog-content"><span class="dialog-brand">TIME GLOBAL<span class="tiny-dot"></span></span><p class="eyebrow">WELCOME / أهلاً بك / HOŞ GELDİNİZ</p><h2 id="languageTitle">Make yourself<br>at home.</h2><p id="languageDescription">Choose your language.<br><span lang="ar" dir="rtl">اختر لغتك</span> · <span lang="tr">Dilinizi seçin.</span></p><div class="language-choices"><button data-language="en" lang="en"><span><strong>English</strong><small>Explore the collection</small></span><span aria-hidden="true">↗</span></button><button data-language="ar" lang="ar" dir="rtl"><span><strong>العربية</strong><small>اكتشف مجموعة الأحجار</small></span><span aria-hidden="true">↖</span></button><button data-language="tr" lang="tr"><span><strong>Türkçe</strong><small>Koleksiyonu keşfedin</small></span><span aria-hidden="true">↗</span></button></div><p class="dialog-note">You can change this anytime in the menu.</p></div></dialog>
+  <noscript><div class="noscript-note">Please enable JavaScript to view prices and choose English, العربية or Türkçe. Contact TIME GLOBAL: <a href="tel:+905538559956">+90 553 855 99 56</a>.</div></noscript>
 </body>
-
 </html>
