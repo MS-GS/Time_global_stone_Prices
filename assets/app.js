@@ -2,6 +2,7 @@
   'use strict';
 
   const products = window.STONE_PRODUCTS;
+  const pricing = window.STONE_PRICING;
   const translations = window.STONE_I18N;
   const languages = ['en', 'ar', 'tr'];
   const storageKey = 'time-global-language';
@@ -13,7 +14,9 @@
   const languageOptions = Array.from(document.querySelectorAll('[data-language-choice]'));
   const t = (key) => translations[state.language][key] ?? translations.en[key] ?? key;
   const escapeHTML = (value) => String(value).replace(/[&<>"']/g, (char) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[char]));
-  const price = (value) => `$${new Intl.NumberFormat('en-US', { maximumFractionDigits: 0 }).format(value)}`;
+  const price = (value) => state.language === 'tr'
+    ? `<span class="price-number">${new Intl.NumberFormat('tr-TR', { maximumFractionDigits: 0 }).format(value * pricing.usdTry)}</span><span class="price-currency">TL</span>`
+    : `$${new Intl.NumberFormat('en-US', { maximumFractionDigits: 0 }).format(value)}`;
   const normalize = (value) => value.normalize('NFKD').replace(/\p{M}/gu, '').toLowerCase().replace(/ı/g, 'i');
   const packingNames = () => [t('bigBag'), t('packs'), t('cage')];
 
@@ -51,9 +54,9 @@
         <div class="stone-body"><div class="stone-title-row"><h3>${escapeHTML(name)}</h3><a href="#quote" class="stone-link" aria-label="${escapeHTML(`${t('enquire')}: ${name}`)}">↗</a></div>
         <p class="stone-description">${escapeHTML(product.desc[state.language])}</p>
         <div class="use-tags" aria-label="${escapeHTML(t('bestFor'))}">${product.uses[state.language].map((use) => `<span>${escapeHTML(use)}</span>`).join('')}</div>
-        <div class="stone-sizes"><span>${escapeHTML(t('sizeLabel'))}</span><span><bdi dir="ltr">${escapeHTML(product.sizes)}</bdi> ${escapeHTML(t('cm'))}</span></div>
+        <div class="stone-sizes"><span><svg class="ui-icon" viewBox="0 0 16 16" aria-hidden="true"><use href="assets/icons/social.svg#rulers"></use></svg>${escapeHTML(t('sizeLabel'))}</span><span><bdi dir="ltr">${escapeHTML(product.sizes)}</bdi> ${escapeHTML(t('cm'))}</span></div>
         <p class="price-basis">${escapeHTML(t('priceUnit'))}</p>
-        <div class="stone-prices">${product.prices.map((value, index) => `<div class="price-option ${index === state.packing ? 'selected' : ''} ${value === null ? 'on-request' : ''}"><span class="packing-name">${escapeHTML(names[index])}</span><strong class="price-value" dir="${value === null ? 'auto' : 'ltr'}">${value === null ? escapeHTML(t('noPrice')) : price(value)}</strong><small class="price-unit">${value === null ? '—' : escapeHTML(t('perTonne'))}</small></div>`).join('')}</div>
+        <div class="stone-prices">${product.prices.map((value, index) => `<div class="price-option ${index === state.packing ? 'selected' : ''} ${value === null ? 'on-request' : state.language === 'tr' ? 'converted-price' : ''}"><span class="packing-name">${escapeHTML(names[index])}</span><strong class="price-value" dir="${value === null ? 'auto' : 'ltr'}">${value === null ? escapeHTML(t('noPrice')) : price(value)}</strong><small class="price-unit">${value === null ? '—' : escapeHTML(t('perTonne'))}</small></div>`).join('')}</div>
         ${product.note[state.language] ? `<p class="stone-note">${escapeHTML(product.note[state.language])}</p>` : ''}
         <a href="#quote" class="card-enquire"><span>${escapeHTML(t('enquire'))}</span><span aria-hidden="true">↗</span></a></div>
       </article></div>`;
@@ -82,6 +85,11 @@
     document.querySelector('.brand').setAttribute('aria-label', t('homeLabel'));
     $('heroImage').alt = products[0].name[language];
     document.querySelector('.hero-swatch img').alt = products[1].name[language];
+    $('exchangeRateNote').hidden = language !== 'tr';
+    const rateDate = new Intl.DateTimeFormat('tr-TR', { day: '2-digit', month: '2-digit', year: 'numeric', timeZone: 'UTC' }).format(new Date(`${pricing.rateDate}T12:00:00Z`));
+    const rateValue = new Intl.NumberFormat('tr-TR', { minimumFractionDigits: 4, maximumFractionDigits: 4 }).format(pricing.usdTry);
+    $('exchangeRateDetails').textContent = t('fxReference').replace('{date}', rateDate).replace('{rate}', rateValue);
+    $('exchangeRateSource').href = pricing.source;
     document.title = `TIME GLOBAL — ${t('navCollection')} · ${t('unit')}`;
     renderGrid();
     if (remember) {

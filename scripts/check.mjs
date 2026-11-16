@@ -58,11 +58,19 @@ for (const filename of scripts) {
     const source = await readFile(path.join(root, filename), 'utf8');
     scriptSources.set(filename, source);
     const script = new vm.Script(source, { filename });
-    if (/\/(?:catalog|translations)\.js$/.test(filename)) {
+    if (/\/(?:catalog|translations|pricing)\.js$/.test(filename)) {
       script.runInContext(context, { timeout: 1000 });
     }
   });
 }
+
+await check('Currency conversion uses a dated reference rate', () => {
+  const pricing = context.window.STONE_PRICING;
+  assert.equal(pricing?.baseCurrency, 'USD');
+  assert.ok(Number.isFinite(pricing.usdTry) && pricing.usdTry > 0, 'Invalid USD/TRY reference');
+  assert.match(pricing.rateDate, /^\d{4}-\d{2}-\d{2}$/);
+  assert.equal(new URL(pricing.source).hostname, 'www.tcmb.gov.tr');
+});
 
 await check('English, Arabic and Turkish translations are complete', () => {
   const messages = context.window.STONE_I18N;
